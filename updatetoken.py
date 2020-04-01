@@ -36,6 +36,6 @@ def main():
     fo.close()
     access_token=gettoken(refresh_token)
 for a in range(0, len(id_list)):
-    path=sys.path[0]+r'/'+str(a)+'.txt'
+    path=sys.path[0]+r'/token/'+str(a)+'.txt'
     main()
 		    
