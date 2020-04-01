@@ -7,7 +7,7 @@ import json,sys,time,random
 #mail:  Mail.Read、Mail.ReadWrite、MailboxSettings.Read、MailboxSettings.ReadWrite
 #注册后一定要再点代表xxx授予管理员同意,否则outlook api无法调用
 #以下空行不要删除，以便运行时插入机密
-
+#
 id_list = [r'b2b60c8e-e838-4a86-94a6-1b5f689028b0',r'9a587110-8249-4f22-a686-e11b553f5f6e']
 secret_list = [r'OldV=42tW9l1/FYuzB.sipZmo@dnFKHc',r'.alg52tc5:DDhL4Dmn/lDzJIeupgyBV.']
 config_list = {'每次轮数':3,'是否启动随机时间':'N','延时范围起始':10,'结束':15,'是否开启随机api顺序':'Y'}
