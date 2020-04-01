@@ -28,6 +28,15 @@ jobs:
     - name: Install requests #安装requests
       run: |
         pip install requests
+    - name: Read config from secrets  #读取机密
+      env: 
+        ID_LIST: ${{ secrets.ID_LIST }} # secrets_id 提供
+        KEY_LIST: ${{ secrets.KEY_LIST }} # secrets_key 提供
+      run: | 
+        echo $ID_LIST > idlist.txt
+        echo $KEY_LIST > keylist.txt
+        sed -i '10 r idlist.txt' testapi.py
+        sed -i '12 r keylist.txt' testapi.py
     - name: Test Api #Api调用
       run: | 
         python testapi.py
