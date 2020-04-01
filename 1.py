@@ -14,6 +14,6 @@ def main2():
     for key in id_list:
 	    congif_id[key] = repr(id_list[key])
     for key in config:
-	    print congif_id[key]
+	    print(congif_id[key])
 
 main2()
