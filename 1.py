@@ -12,9 +12,10 @@ import json,sys,time,random
 
 config_id = []
 def main2():
+#    for a in range(0, len(id_list)):
+#	    config_id[a] = repr(id_list[a])
+#    for a in range(0, len(config_id)):
+#	    print(config_id[a])
     for a in range(0, len(id_list)):
-	    config_id[a] = repr(id_list[a])
-    for a in range(0, len(config_id)):
-	    print(config_id[a])
-
+	    print(id_list[a])
 main2()
