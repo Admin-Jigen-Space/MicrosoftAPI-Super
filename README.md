@@ -48,7 +48,7 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR、AutoApiS
   
 * 根据[原教程](https://blog.432100.xyz/index.php/archives/50/)获取应用id、机密、refresh_token（自己复制保存，注意区分id机密，千万别弄混了）
    
-  在你电脑上新建多个txt文本，例如你有两个账号，则账号 0 对应为 0.txt , 账号 1 对应为 1.txt , 以此类推。(只有一个账号，则只需一个0.txt)
+  在你电脑上新建多个txt文本，例如你有两个账号，则账号 0 对应为 0.txt , 账号 1 对应为 1.txt , 以此类推。(只有一个账号，则只需一个0.txt，一定要从0开始数)
   
   再把各个账号对应的refresh_token粘贴进对应的txt文件。
   
