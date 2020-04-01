@@ -27,6 +27,7 @@ def gettoken(refresh_token):
     access_token = jsontxt['access_token']
     return access_token
 def main():
+    print(a)
     fo = open(path, "r+")
     refresh_token = fo.read()
     fo.close()
