@@ -47,5 +47,5 @@ for a in range(0, len(id_list)):
     c=random.randint(5,10)
     path=sys.path[0]+r'/'+str(a)+'.txt'
 #    main()
-    randapi():
+    randapi()
     time.sleep(c)
