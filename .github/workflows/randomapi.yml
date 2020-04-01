@@ -10,9 +10,7 @@ on:
   #  branches: 
   #    - master
   schedule:
-    - cron: "45 0 * * *"
-  watch:
-    types: [started]
+    - cron: "45 2 15 * *"
    
 jobs:
   build:
@@ -28,7 +26,16 @@ jobs:
     - name: Install requests #安装requests
       run: |
         pip install requests
-    - name: Update token #更新token
+    - name: Update randapi #更新api排序
       run: | 
-        echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.log
-        python update.py
+        python updaterand.py
+    - name: Commit #上传新的排序到仓库
+      run: |
+        git config --global user.email AutoupdateRobot@email.com
+        git config --global user.name AutoupdateRobot
+        git add .
+        git commit -m "update new refresh_token" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
