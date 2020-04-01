@@ -37,6 +37,6 @@ def main():
 for _ in range(3): 
     b=random.randint(5,10)
     time.sleep(b)
-    for a in range(1, len(id_list)):
+    for a in range(0, len(id_list)):
 	    path=sys.path[0]+r'/'+str(a)+'.txt'
 	    main()
