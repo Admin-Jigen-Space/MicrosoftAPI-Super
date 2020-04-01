@@ -62,7 +62,7 @@ def main():
         try:
             if req.get(rapi[rana],headers=headers).status_code == 200:
                 num1[a]+=1
-		d=ra+1
+                d=ra+1
                 print(str(d)+"调用成功"+str(num1[a])+'次')
         except:
             print("pass")
