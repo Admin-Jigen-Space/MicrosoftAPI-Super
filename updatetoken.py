@@ -29,14 +29,12 @@ def gettoken(refresh_token):
     refresh_token = jsontxt['refresh_token']
     access_token = jsontxt['access_token']
         with open(path, 'w+') as f:
-        f.write(refresh_token)
+            f.write(refresh_token)
 def main():
     fo = open(path, "r+")
     refresh_token = fo.read()
     fo.close()
     access_token=gettoken(refresh_token)
-
- 
 for a in range(0, len(id_list)):
     path=sys.path[0]+r'/'+str(a)+'.txt'
     main()
