@@ -6,16 +6,77 @@ import json,sys,time,random
 #user:	User.Read.All、User.ReadWrite.All、Directory.Read.All、Directory.ReadWrite.All
 #mail:  Mail.Read、Mail.ReadWrite、MailboxSettings.Read、MailboxSettings.ReadWrite
 #注册后一定要再点代表xxx授予管理员同意,否则outlook api无法调用
+#以下空行不要删除，以便运行时插入机密
 
+id_list = [r'b2b60c8e-e838-4a86-94a6-1b5f689028b0',r'OldV=42tW9l1/FYuzB.sipZmo@dnFKHc']
+secret_list = [r'9a587110-8249-4f22-a686-e11b553f5f6e',r'.alg52tc5:DDhL4Dmn/lDzJIeupgyBV.']
 
-
-
-config_id = []
-def main2():
-#    for a in range(0, len(id_list)):
-#	    config_id[a] = repr(id_list[a])
-#    for a in range(0, len(config_id)):
-#	    print(config_id[a])
-    for a in range(0, len(id_list)):
-	    print(id_list[a])
-main2()
+num1 = [0]*len(id_list)
+def gettoken(refresh_token):
+    headers={'Content-Type':'application/x-www-form-urlencoded'
+            }
+    data={'grant_type': 'refresh_token',
+          'refresh_token': refresh_token,
+          'client_id':id_list[a],
+          'client_secret':secret[a],
+          'redirect_uri':'http://localhost:53682/'
+         }
+    html = req.post('https://login.microsoftonline.com/common/oauth2/v2.0/token',data=data,headers=headers)
+    jsontxt = json.loads(html.text)
+    refresh_token = jsontxt['refresh_token']
+    access_token = jsontxt['access_token']
+    return access_token
+def main():
+    fo = open(path, "r+")
+    refresh_token = fo.read()
+    fo.close()
+    localtime = time.asctime( time.localtime(time.time()) )
+    access_token=gettoken(refresh_token)
+    headers={
+    'Authorization':access_token,
+    'Content-Type':'application/json'
+    }
+    print('账号 '+str(a)+' 此次运行开始时间为 :', localtime)
+    try:
+        if req.get(r'https://graph.microsoft.com/v1.0/me/drive/root',headers=headers).status_code == 200:
+            num1[a]+=1
+            print("1调用成功"+str(num1)+'次')
+        if req.get(r'https://graph.microsoft.com/v1.0/me/drive',headers=headers).status_code == 200:
+            num1[a]+=1
+            print("2调用成功"+str(num1)+'次')
+        if req.get(r'https://graph.microsoft.com/v1.0/drive/root',headers=headers).status_code == 200:
+            num1[a]+=1
+            print('3调用成功'+str(num1)+'次')
+        if req.get(r'https://graph.microsoft.com/v1.0/users ',headers=headers).status_code == 200:
+            num1[a]+=1
+            print('4调用成功'+str(num1)+'次')
+        if req.get(r'https://graph.microsoft.com/v1.0/me/messages',headers=headers).status_code == 200:
+            num1[a]+=1
+            print('5调用成功'+str(num1)+'次')    
+        if req.get(r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',headers=headers).status_code == 200:
+            num1[a]+=1
+            print('6调用成功'+str(num1)+'次')    
+        if req.get(r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',headers=headers).status_code == 200:
+            num1[a]+=1
+            print('7调用成功'+str(num1)+'次')
+        if req.get(r'https://graph.microsoft.com/v1.0/me/drive/root/children',headers=headers).status_code == 200:
+            num1[a]+=1
+            print('8调用成功'+str(num1)+'次')
+        if req.get(r'https://api.powerbi.com/v1.0/myorg/apps',headers=headers).status_code == 200:
+            num1[a]+=1
+            print('8调用成功'+str(num1)+'次') 
+        if req.get(r'https://graph.microsoft.com/v1.0/me/mailFolders',headers=headers).status_code == 200:
+            num1[a]+=1
+            print('9调用成功'+str(num1)+'次')
+        if req.get(r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories',headers=headers).status_code == 200:
+            num1[a]+=1
+            print('10调用成功'+str(num1)+'次')
+    except:
+        print("pass")
+        pass
+for _ in range(3): 
+        for i in range(random.randint(5,10),0,-1):
+            time.sleep(1)
+		for a in range(0, len(id_list)):
+	        path=sys.path[0]+r'/'+str(a)+r'.txt'
+            main()

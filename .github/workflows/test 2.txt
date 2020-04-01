@@ -28,6 +28,13 @@ jobs:
     - name: Install requests #安装requests
       run: |
         pip install requests
+    - name: Read config from secrets  #读取机密
+      env: 
+        ID_LIST: ${{ secrets.CONFIG_ID }} # secrets_id 提供
+      run: | 
+        cp 1.py 2.py
+        echo $ID_LIST > configid.txt
+        sed -i '10 r configid.txt' 2.py
     - name: Test Api #Api调用
       run: | 
         python 2.py
