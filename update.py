@@ -46,5 +46,4 @@ for a in range(0, len(id_list)):
     str3 = ','.join([str(x) for x in randomapi2])
     print (str3)
 #    main()
-    randapi(randomapi)
     time.sleep(c)
