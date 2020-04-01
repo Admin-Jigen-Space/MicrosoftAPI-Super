@@ -10,7 +10,10 @@ import json,sys,time,random
 
 id_list = [r'b2b60c8e-e838-4a86-94a6-1b5f689028b0',r'9a587110-8249-4f22-a686-e11b553f5f6e']
 secret_list = [r'OldV=42tW9l1/FYuzB.sipZmo@dnFKHc',r'.alg52tc5:DDhL4Dmn/lDzJIeupgyBV.']
-config_list = {'每次轮数':3,'是否启动随机时间':'N','延时范围起始':10,'结束':15,'是否开启随机api顺序':'Y'}
+config_list = {'每次轮数':3,
+	       '是否启动随机时间':'N','延时范围起始':10,'结束':15,
+	       '是否开启随机api顺序':'Y',
+	       '是否开启各api延时':'N','分延时范围开始':2,'分结束':5}
     
 num1 = [0]*len(id_list)
 randomapi = ['']*10
@@ -55,29 +58,45 @@ def main():
     'Content-Type':'application/json'
     }
     print('账号 '+str(a)+' 此次运行开始时间为 :', localtime)
-    for ra in range(10):
-        rana = str(randomapi[ra])
-        try:
-            if req.get(rapi[rana],headers=headers).status_code == 200:
-                num1[a]+=1
-                print(rana+"调用成功"+str(num1[a])+'次')
-        except:
-            print("pass")
-            pass
+    if config_list['是否开启随机api顺序'] == 'Y':
+        for ra in range(10):
+            rana = str(randomapi[ra])
+            try:
+                if req.get(rapi[rana],headers=headers).status_code == 200:
+                    num1[a]+=1
+                    print(rana+"调用成功"+str(num1[a])+'次')
+                    if config_list['是否开启各api延时'] != 'N':
+                        gg = random.randint(config_list['分延时范围开始'],config_list['分结束'])
+                        time.sleep(gg)
+                except:
+                    print("pass")
+                    pass
+    else:
+        for ra in range(1,11):
+            try:
+                if req.get(rapi[ra],headers=headers).status_code == 200:
+                    num1[a]+=1
+                    print(rana+"调用成功"+str(num1[a])+'次')
+                    if config_list['是否开启各api延时'] != 'N':
+                        gg = random.randint(config_list['分延时范围开始'],config_list['分结束'])
+                        time.sleep(gg)
+                except:
+                    print("pass")
+                    pass    
 if config_list['是否启动随机时间'] == 'Y':        
     for _ in range(config_list['每次轮数']): 
         b=random.randint(config_list['延时范围起始'],config_list['结束'])
         time.sleep(b)
         for a in range(0, len(id_list)):
-	        c=random.randint(5,10)
-	        path=sys.path[0]+r'/'+str(a)+'.txt'
-	        time.sleep(c)
-	        main()
+            c=random.randint(5,10)
+            path=sys.path[0]+r'/'+str(a)+'.txt'
+            time.sleep(c)
+            main()
 else:
     for _ in range(config_list['每次轮数']): 
         for a in range(0, len(id_list)):
-	        c=random.randint(5,10)
-	        path=sys.path[0]+r'/'+str(a)+'.txt'
-	        time.sleep(c)
-	        main()
+            c=random.randint(5,10)
+            path=sys.path[0]+r'/'+str(a)+'.txt'
+            time.sleep(c)
+            main()
 		    
