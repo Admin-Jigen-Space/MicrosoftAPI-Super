@@ -32,7 +32,7 @@ def gettoken(refresh_token):
     access_token = jsontxt['access_token']
     with open(path, 'w+') as f:
         f.write(refresh_token)
-def randapi():
+def randapi(randomapi):
     randomapi2 = random.shuffle(randomapi)
     str3 = ','.join([str(x) for x in randomapi2])
     print (str3)
@@ -47,5 +47,5 @@ for a in range(0, len(id_list)):
     c=random.randint(5,10)
     path=sys.path[0]+r'/'+str(a)+'.txt'
 #    main()
-    randapi()
+    randapi(randomapi)
     time.sleep(c)
