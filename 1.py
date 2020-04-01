@@ -30,7 +30,6 @@ fc = open(path2, "r+")
 randapi = fc.read()
 fc.close()
 randomapi = randapi.split(',')
-print(randomapi)
 def gettoken(refresh_token):
     headers={'Content-Type':'application/x-www-form-urlencoded'
             }
@@ -58,7 +57,6 @@ def main():
     print('账号 '+str(a)+' 此次运行开始时间为 :', localtime)
     for ra in range(10):
         rana = str(randomapi[ra])
-        print(rapi[rana])
         try:
             if req.get(rapi[rana],headers=headers).status_code == 200:
                 num1[a]+=1
