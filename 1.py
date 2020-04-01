@@ -31,10 +31,12 @@ def main():
     fo = open(path, "r+")
     refresh_token = fo.read()
     fo.close()
+    localtime = time.asctime( time.localtime(time.time()) )
+    print('开始'+localtime)
     print(refresh_token)
 for _ in range(3): 
-    for i in range(random.randint(5,10),0,-1):
-        time.sleep(1)
+    b=random.randint(5,10)
+    time.sleep(b)
     for a in range(1, len(id_list)):
 	    path=sys.path[0]+r'/'+str(a)+'.txt'
 	    main()
