@@ -44,7 +44,7 @@ for a in range(0, len(id_list)):
     c=random.randint(5,10)
     path=sys.path[0]+r'/'+str(a)+'.txt'
     arr = random.shuffle(randomapi)
-    for i in range(10)
+    for i in range(10):
         arr[i] = str(arr[i])
     str2 = ','.join(arr)
     print (str2)
