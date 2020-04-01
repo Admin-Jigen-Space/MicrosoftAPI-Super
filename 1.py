@@ -94,14 +94,14 @@ if config_list['是否启动随机时间'] == 'Y':
         time.sleep(b)
         for a in range(0, len(id_list)):
 		c=random.randint(5,10)
-		time.sleep(c)
+	        time.sleep(c)
 	        path=sys.path[0]+r'/'+str(a)+'.txt'
 	        main()
 else:
     for _ in range(config_list['每次轮数']): 
         for a in range(0, len(id_list)):
 		c=random.randint(5,10)
-		time.sleep(c)
+	        time.sleep(c)
 	        path=sys.path[0]+r'/'+str(a)+'.txt'
 	        main()
 		    
