@@ -11,9 +11,9 @@ import json,sys,time,random
 
 
 def main2():
-    for key in id_list:
-	    congif_id[key] = repr(id_list[key])
-    for key in config:
-	    print(congif_id[key])
+    for a in range(0, len(id_list)):
+	    congif_id[a] = repr(id_list[a])
+    for a in range(0, len(config_id)):
+	    print(congif_id[a])
 
 main2()
