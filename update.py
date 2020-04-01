@@ -15,6 +15,7 @@ config_list = {'每次轮数':3,'是否启动随机时间':'N','延时范围起�
 num1 = [0]*len(id_list)
 randomapi = [1,2,3,4,5,6,7,8,9,10]
 ran = 0
+str2=''
 path2=sys.path[0]+r'/randomapi.txt'
 
 def gettoken(refresh_token):
@@ -42,8 +43,7 @@ def main():
 for a in range(0, len(id_list)):
     c=random.randint(5,10)
     path=sys.path[0]+r'/'+str(a)+'.txt'
-    randomapi2 = random.shuffle(randomapi)
-    str3 = ','.join([str(x) for x in randomapi2])
-    print (str3)
+    arr = random.shuffle(randomapi)
+    str2 = ','.join(str(i) for i in arr)
+    print (str2)
 #    main()
-    time.sleep(c)
