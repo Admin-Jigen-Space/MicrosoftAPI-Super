@@ -21,8 +21,9 @@ path2=sys.path[0]+r'/randomapi.txt'
 for a in range(0, len(id_list)):
     c=random.randint(5,10)
     path=sys.path[0]+r'/'+str(a)+'.txt'
-    arr=random.shuffle(randomapi)
-    print(arr)
+    arr1=random.shuffle(randomapi)
+    for i in range(0,len(arr1)):
+        print(arr[i])
 #    for i in range(10): 
 #        arr[i] = str(arr[i])
 #    str2 = ','.join(arr)
