@@ -38,7 +38,6 @@ def main():
     'Content-Type':'application/json'
     }
     print('账号 '+str(a)+' 此次运行开始时间为 :', localtime)
-    print(repr(num1))
     try:
         if req.get(r'https://graph.microsoft.com/v1.0/me/drive/root',headers=headers).status_code == 200:
             num1[a]+=1
@@ -83,8 +82,12 @@ if config_list['是否启动随机时间'] == 'Y':
         for a in range(0, len(id_list)):
 	        path=sys.path[0]+r'/'+str(a)+'.txt'
 	        main()
+		c=random.randint(5,10)
+		time.sleep(c)
 else:
     for _ in range(config_list['每次轮数']): 
         for a in range(0, len(id_list)):
 	        path=sys.path[0]+r'/'+str(a)+'.txt'
 	        main()
+		c=random.randint(5,10)
+		time.sleep(c)
