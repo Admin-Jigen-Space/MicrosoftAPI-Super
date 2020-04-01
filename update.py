@@ -17,28 +17,7 @@ randomapi=[1,2,3,4,5,6,7,8,9,10]
 ran = 0
 path2=sys.path[0]+r'/randomapi.txt'
 
-def gettoken(refresh_token):
-    headers={'Content-Type':'application/x-www-form-urlencoded'
-            }
-    data={'grant_type': 'refresh_token',
-          'refresh_token': refresh_token,
-          'client_id':id_list[a],
-          'client_secret':secret_list[a],
-          'redirect_uri':'http://localhost:53682/'
-         }
-    html = req.post('https://login.microsoftonline.com/common/oauth2/v2.0/token',data=data,headers=headers)
-    jsontxt = json.loads(html.text)
-    refresh_token = jsontxt['refresh_token']
-    access_token = jsontxt['access_token']
-    with open(path, 'w+') as f:
-        f.write(refresh_token)
-#    with open(path, 'w+') as f2:
-#        f2.write(randomapi2) 
-def main():
-    fo = open(path, "r+")
-    refresh_token = fo.read()
-    fo.close()
-    gettoken(refresh_token)
+
 for a in range(0, len(id_list)):
     c=random.randint(5,10)
     path=sys.path[0]+r'/'+str(a)+'.txt'
