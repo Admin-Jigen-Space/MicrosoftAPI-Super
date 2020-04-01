@@ -21,7 +21,7 @@ path2=sys.path[0]+r'/randomapi.txt'
 for a in range(0, len(id_list)):
     c=random.randint(5,10)
     path=sys.path[0]+r'/'+str(a)+'.txt'
-    randomapi=random.shuffle(randomapi)
+    random.shuffle(randomapi)
     for i in range(0,len(randomapi)):
         print(randomapi[i])
 #    for i in range(10): 
