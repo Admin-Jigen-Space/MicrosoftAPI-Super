@@ -10,7 +10,7 @@ import json,sys,time,random
 
 id_list = [r'b2b60c8e-e838-4a86-94a6-1b5f689028b0',r'OldV=42tW9l1/FYuzB.sipZmo@dnFKHc']
 secret_list = [r'9a587110-8249-4f22-a686-e11b553f5f6e',r'.alg52tc5:DDhL4Dmn/lDzJIeupgyBV.']
-config_list = {'每次轮数':6,'是否启动随机时间':'Y','延时范围起始':600,'结束':1200}
+config_list = {'每次轮数':3,'是否启动随机时间':'Y','延时范围起始':10,'结束':15}
     
 num1 = [0]*len(id_list)
 def gettoken(refresh_token):
