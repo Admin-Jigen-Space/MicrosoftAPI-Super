@@ -30,6 +30,7 @@ fc = open(path2, "r+")
 randapi = fc.read()
 fc.close()
 randomapi = randapi.split(',')
+print(randomapi)
 def gettoken(refresh_token):
     headers={'Content-Type':'application/x-www-form-urlencoded'
             }
