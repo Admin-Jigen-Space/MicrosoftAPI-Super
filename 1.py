@@ -79,4 +79,8 @@ for _ in range(3):
         time.sleep(1)
     for a in range(1, len(id_list)):
 	    path=sys.path[0]+r'/'+str(a)+'.txt'
-	    main()
+	    fo = open(path, "r+")
+            refresh_token = fo.read()
+            fo.close(refresh_token)
+	    print()
+#	    main()
