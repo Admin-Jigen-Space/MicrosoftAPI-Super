@@ -30,4 +30,4 @@ jobs:
         pip install requests
     - name: Test Api #Api调用
       run: | 
-        python 1.py
+        python testapi.py
