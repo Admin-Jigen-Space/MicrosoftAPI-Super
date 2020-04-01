@@ -13,15 +13,15 @@ secret_list = [r'OldV=42tW9l1/FYuzB.sipZmo@dnFKHc',r'.alg52tc5:DDhL4Dmn/lDzJIeup
 config_list = {'每次轮数':3,'是否启动随机时间':'Y','延时范围起始':10,'结束':15,'是否开启随机api顺序':'Y'}
     
 num1 = [0]*len(id_list)
-rapi = {1:r'https://graph.microsoft.com/v1.0/me/drive/root';
-	2:r'https://graph.microsoft.com/v1.0/me/drive';
-	3:r'https://graph.microsoft.com/v1.0/drive/root';
-	4:r'https://graph.microsoft.com/v1.0/users ';
-	5:r'https://graph.microsoft.com/v1.0/me/messages';
-	6:r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules';
-	7:r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules';
-	8:r'https://graph.microsoft.com/v1.0/me/drive/root/children';
-	9:r'https://graph.microsoft.com/v1.0/me/mailFolders';
+rapi = {1:r'https://graph.microsoft.com/v1.0/me/drive/root',
+	2:r'https://graph.microsoft.com/v1.0/me/drive',
+	3:r'https://graph.microsoft.com/v1.0/drive/root',
+	4:r'https://graph.microsoft.com/v1.0/users ',
+	5:r'https://graph.microsoft.com/v1.0/me/messages',
+	6:r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',
+	7:r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',
+	8:r'https://graph.microsoft.com/v1.0/me/drive/root/children',
+	9:r'https://graph.microsoft.com/v1.0/me/mailFolders',
 	10:r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories'}
 for ra in range(10):
     print(ra)
