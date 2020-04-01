@@ -13,9 +13,8 @@ secret_list = [r'OldV=42tW9l1/FYuzB.sipZmo@dnFKHc',r'.alg52tc5:DDhL4Dmn/lDzJIeup
 config_list = {'每次轮数':3,'是否启动随机时间':'N','延时范围起始':10,'结束':15,'是否开启随机api顺序':'Y'}
 
 num1 = [0]*len(id_list)
-randomapi = [1,2,3,4,5,6,7,8,9,10]
+randomapi=[1,2,3,4,5,6,7,8,9,10]
 ran = 0
-str2=''
 path2=sys.path[0]+r'/randomapi.txt'
 
 def gettoken(refresh_token):
@@ -43,7 +42,7 @@ def main():
 for a in range(0, len(id_list)):
     c=random.randint(5,10)
     path=sys.path[0]+r'/'+str(a)+'.txt'
-    arr = random.shuffle(randomapi)
+    arr=random.shuffle(randomapi)
     print(arr)
 #    for i in range(10): 
 #        arr[i] = str(arr[i])
