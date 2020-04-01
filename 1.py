@@ -80,7 +80,7 @@ for _ in range(3):
     for a in range(1, len(id_list)):
 	    path=sys.path[0]+r'/'+str(a)+'.txt'
 	    fo = open(path, "r+")
-            refresh_token = fo.read()
-            fo.close(refresh_token)
+        refresh_token = fo.read()
+        fo.close(refresh_token)
 	    print()
 #	    main()
