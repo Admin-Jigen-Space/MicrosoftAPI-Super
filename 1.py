@@ -78,5 +78,6 @@ for _ in range(3):
     for i in range(random.randint(5,10),0,-1):
         time.sleep(1)
     for a in range(0, len(id_list)):
-	path=sys.path[0]+r'/'+str(a)+r'.txt'
+	path1=r'/'+str(a)+r'.txt'
+	path=sys.path[0]+r'/'+str(a)+'.txt'
         main()
