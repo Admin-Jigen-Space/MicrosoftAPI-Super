@@ -10,9 +10,21 @@ import json,sys,time,random
 
 id_list = [r'b2b60c8e-e838-4a86-94a6-1b5f689028b0',r'9a587110-8249-4f22-a686-e11b553f5f6e']
 secret_list = [r'OldV=42tW9l1/FYuzB.sipZmo@dnFKHc',r'.alg52tc5:DDhL4Dmn/lDzJIeupgyBV.']
-config_list = {'每次轮数':3,'是否启动随机时间':'Y','延时范围起始':10,'结束':15}
+config_list = {'每次轮数':3,'是否启动随机时间':'Y','延时范围起始':10,'结束':15,'是否开启随机api顺序':'Y'}
     
 num1 = [0]*len(id_list)
+rapi = {1:r'https://graph.microsoft.com/v1.0/me/drive/root';
+	2:r'https://graph.microsoft.com/v1.0/me/drive';
+	3:r'https://graph.microsoft.com/v1.0/drive/root';
+	4:r'https://graph.microsoft.com/v1.0/users ';
+	5:r'https://graph.microsoft.com/v1.0/me/messages';
+	6:r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules';
+	7:r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules';
+	8:r'https://graph.microsoft.com/v1.0/me/drive/root/children';
+	9:r'https://graph.microsoft.com/v1.0/me/mailFolders';
+	10:r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories'}
+for ra in range(10):
+    print(ra)
 def gettoken(refresh_token):
     headers={'Content-Type':'application/x-www-form-urlencoded'
             }
@@ -37,6 +49,7 @@ def main():
     'Authorization':access_token,
     'Content-Type':'application/json'
     }
+
     print('账号 '+str(a)+' 此次运行开始时间为 :', localtime)
     try:
         if req.get(r'https://graph.microsoft.com/v1.0/me/drive/root',headers=headers).status_code == 200:
@@ -63,9 +76,9 @@ def main():
         if req.get(r'https://graph.microsoft.com/v1.0/me/drive/root/children',headers=headers).status_code == 200:
             num1[a]+=1
             print('8调用成功'+str(num1[a])+'次')
-        if req.get(r'https://api.powerbi.com/v1.0/myorg/apps',headers=headers).status_code == 200:
-            num1[a]+=1
-            print('8调用成功'+str(num1[a])+'次') 
+#        if req.get(r'https://api.powerbi.com/v1.0/myorg/apps',headers=headers).status_code == 200:
+#            num1[a]+=1
+#            print('8调用成功'+str(num1[a])+'次') 
         if req.get(r'https://graph.microsoft.com/v1.0/me/mailFolders',headers=headers).status_code == 200:
             num1[a]+=1
             print('9调用成功'+str(num1[a])+'次')
