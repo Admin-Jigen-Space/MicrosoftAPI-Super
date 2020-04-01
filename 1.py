@@ -68,9 +68,9 @@ def main():
                     if config_list['是否开启各api延时'] != 'N':
                         gg = random.randint(config_list['分延时范围开始'],config_list['分结束'])
                         time.sleep(gg)
-                except:
-                    print("pass")
-                    pass
+            except:
+                print("pass")
+                pass
     else:
         for ra in range(1,11):
             try:
@@ -80,9 +80,9 @@ def main():
                     if config_list['是否开启各api延时'] != 'N':
                         gg = random.randint(config_list['分延时范围开始'],config_list['分结束'])
                         time.sleep(gg)
-                except:
-                    print("pass")
-                    pass    
+            except:
+                print("pass")
+                pass    
 if config_list['是否启动随机时间'] == 'Y':        
     for _ in range(config_list['每次轮数']): 
         b=random.randint(config_list['延时范围起始'],config_list['结束'])
