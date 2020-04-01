@@ -81,6 +81,6 @@ for _ in range(3):
 	    path=sys.path[0]+r'/'+str(a)+'.txt'
 	    fo = open(path, "r+")
         refresh_token = fo.read()
-        fo.close(refresh_token)
-	    print()
+        fo.close()
+	    print(refresh_token)
 #	    main()
