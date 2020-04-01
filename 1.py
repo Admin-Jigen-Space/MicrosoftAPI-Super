@@ -13,18 +13,25 @@ secret_list = [r'OldV=42tW9l1/FYuzB.sipZmo@dnFKHc',r'.alg52tc5:DDhL4Dmn/lDzJIeup
 config_list = {'每次轮数':3,'是否启动随机时间':'N','延时范围起始':10,'结束':15,'是否开启随机api顺序':'Y'}
     
 num1 = [0]*len(id_list)
-rapi = {1:r'https://graph.microsoft.com/v1.0/me/drive/root',
-	2:r'https://graph.microsoft.com/v1.0/me/drive',
-	3:r'https://graph.microsoft.com/v1.0/drive/root',
-	4:r'https://graph.microsoft.com/v1.0/users ',
-	5:r'https://graph.microsoft.com/v1.0/me/messages',
+randomapi = ['']*10
+ran = 0
+path2=sys.path[0]+r'/randomapi.txt'
+rapi = {0:r'https://graph.microsoft.com/v1.0/me/drive/root',
+	1:r'https://graph.microsoft.com/v1.0/me/drive',
+	2:r'https://graph.microsoft.com/v1.0/drive/root',
+	3:r'https://graph.microsoft.com/v1.0/users ',
+	4:r'https://graph.microsoft.com/v1.0/me/messages',
+	5:r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',
 	6:r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',
-	7:r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',
-	8:r'https://graph.microsoft.com/v1.0/me/drive/root/children',
-	9:r'https://graph.microsoft.com/v1.0/me/mailFolders',
-	10:r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories'}
-for ra in range(1,11):
-    print(ra)
+	7:r'https://graph.microsoft.com/v1.0/me/drive/root/children',
+	8:r'https://graph.microsoft.com/v1.0/me/mailFolders',
+	9:r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories'}
+fc = open(path2, "r+")
+randapi = fc.read()
+fc.close()
+randomapi = randapi.split(',')
+for ra in range(0,10):
+    randomapi2[ra] = randomapi[ra]
 def gettoken(refresh_token):
     headers={'Content-Type':'application/x-www-form-urlencoded'
             }
@@ -49,45 +56,17 @@ def main():
     'Authorization':access_token,
     'Content-Type':'application/json'
     }
-
     print('账号 '+str(a)+' 此次运行开始时间为 :', localtime)
-    try:
-        if req.get(r'https://graph.microsoft.com/v1.0/me/drive/root',headers=headers).status_code == 200:
-            num1[a]+=1
-            print("1调用成功"+str(num1[a])+'次')
-        if req.get(r'https://graph.microsoft.com/v1.0/me/drive',headers=headers).status_code == 200:
-            num1[a]+=1
-            print("2调用成功"+str(num1[a])+'次')
-        if req.get(r'https://graph.microsoft.com/v1.0/drive/root',headers=headers).status_code == 200:
-            num1[a]+=1
-            print('3调用成功'+str(num1[a])+'次')
-        if req.get(r'https://graph.microsoft.com/v1.0/users ',headers=headers).status_code == 200:
-            num1[a]+=1
-            print('4调用成功'+str(num1[a])+'次')
-        if req.get(r'https://graph.microsoft.com/v1.0/me/messages',headers=headers).status_code == 200:
-            num1[a]+=1
-            print('5调用成功'+str(num1[a])+'次')    
-        if req.get(r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',headers=headers).status_code == 200:
-            num1[a]+=1
-            print('6调用成功'+str(num1[a])+'次')    
-        if req.get(r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',headers=headers).status_code == 200:
-            num1[a]+=1
-            print('7调用成功'+str(num1[a])+'次')
-        if req.get(r'https://graph.microsoft.com/v1.0/me/drive/root/children',headers=headers).status_code == 200:
-            num1[a]+=1
-            print('8调用成功'+str(num1[a])+'次')
-#        if req.get(r'https://api.powerbi.com/v1.0/myorg/apps',headers=headers).status_code == 200:
-#            num1[a]+=1
-#            print('8调用成功'+str(num1[a])+'次') 
-        if req.get(r'https://graph.microsoft.com/v1.0/me/mailFolders',headers=headers).status_code == 200:
-            num1[a]+=1
-            print('9调用成功'+str(num1[a])+'次')
-        if req.get(r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories',headers=headers).status_code == 200:
-            num1[a]+=1
-            print('10调用成功'+str(num1[a])+'次')
-    except:
-        print("pass")
-        pass
+    for ra in range(10):
+        ran = randomapi[ra]
+        try:
+            if req.get(rapi[rana],headers=headers).status_code == 200:
+                num1[a]+=1
+		d=ra+1
+                print(str(d)+"调用成功"+str(num1[a])+'次')
+        except:
+            print("pass")
+            pass
 if config_list['是否启动随机时间'] == 'Y':        
     for _ in range(config_list['每次轮数']): 
         b=random.randint(config_list['延时范围起始'],config_list['结束'])
