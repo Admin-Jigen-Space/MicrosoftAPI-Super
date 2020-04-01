@@ -16,16 +16,7 @@ num1 = [0]*len(id_list)
 randomapi = ['']*10
 ran = 0
 path2=sys.path[0]+r'/randomapi.txt'
-rapi = {'0':r'https://graph.microsoft.com/v1.0/me/drive/root',
-	'1':r'https://graph.microsoft.com/v1.0/me/drive',
-	'2':r'https://graph.microsoft.com/v1.0/drive/root',
-	'3':r'https://graph.microsoft.com/v1.0/users ',
-	'4':r'https://graph.microsoft.com/v1.0/me/messages',
-	'5':r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',
-	'6':r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',
-	'7':r'https://graph.microsoft.com/v1.0/me/drive/root/children',
-	'8':r'https://graph.microsoft.com/v1.0/me/mailFolders',
-	'9':r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories'}
+rapi = {'0':r'https://graph.microsoft.com/v1.0/me/drive/root','1':r'https://graph.microsoft.com/v1.0/me/drive','2':r'https://graph.microsoft.com/v1.0/drive/root','3':r'https://graph.microsoft.com/v1.0/users ','4':r'https://graph.microsoft.com/v1.0/me/messages','5':r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules','6':r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules','7':r'https://graph.microsoft.com/v1.0/me/drive/root/children','8':r'https://graph.microsoft.com/v1.0/me/mailFolders','9':r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories'}
 fc = open(path2, "r+")
 randapi = fc.read()
 fc.close()
@@ -61,8 +52,7 @@ def main():
         try:
             if req.get(rapi[rana],headers=headers).status_code == 200:
                 num1[a]+=1
-                d=ra+1
-                print(str(d)+"调用成功"+str(num1[a])+'次')
+                print(rana+"调用成功"+str(num1[a])+'次')
         except:
             print("pass")
             pass
