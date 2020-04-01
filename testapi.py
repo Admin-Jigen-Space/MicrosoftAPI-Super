@@ -66,7 +66,7 @@ def main():
             try:
                 if req.get(rapi[rana],headers=headers).status_code == 200:
                     num1[a]+=1
-                    print(rana+"调用成功"+str(num1[a])+'次')
+                    print(rana+"调用成功,所有api总成功"+str(num1[a])+'次')
                     if config_list['是否开启各api延时'] != 'N':
                         gg = random.randint(config_list['分延时范围开始'],config_list['分结束'])
                         time.sleep(gg)
@@ -75,10 +75,11 @@ def main():
                 pass
     else:
         for ra in range(1,11):
+            rana = str(ra)
             try:
-                if req.get(rapi[ra],headers=headers).status_code == 200:
+                if req.get(rapi[rana],headers=headers).status_code == 200:
                     num1[a]+=1
-                    print(rana+"调用成功"+str(num1[a])+'次')
+                    print(rana+"调用成功,所有api总成功"+str(num1[a])+'次')
                     if config_list['是否开启各api延时'] != 'N':
                         gg = random.randint(config_list['分延时范围开始'],config_list['分结束'])
                         time.sleep(gg)
