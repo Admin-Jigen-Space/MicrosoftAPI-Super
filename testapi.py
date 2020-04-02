@@ -50,7 +50,7 @@ rapi = {'1':r'https://graph.microsoft.com/v1.0/me/',
 	'24':r'https://graph.microsoft.com/v1.0/me/mailFolders/Inbox/messages/delta',
 	'25':r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',
 	'26':r"https://graph.microsoft.com/v1.0/me/messages?$filter=importance eq 'high'",
-	'27':r'https://graph.microsoft.com/v1.0/me/messages?$search="hello world"',
+	'27':r"https://graph.microsoft.com/v1.0/me/messages?$search='hello world'",
 	'28':r'https://graph.microsoft.com/beta/me/messages?$select=internetMessageHeaders&$top',
         '29':r'https://api.powerbi.com/v1.0/myorg/apps'}
 rapi2 = {'1':r'https://graph.microsoft.com/v1.0/me/drive/root',
