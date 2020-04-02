@@ -20,15 +20,18 @@ for i in range(0,3):
 b = random.randint(0,3)
 if b == 0:
     slice1[3]=random.sample(list1[5], list2[5])
+    print(str(slice1[3]))
 if b == 1:
     slice1[3]=random.sample(list1[3], list2[3])
+    print(str(slice1[3]))
 if b == 2:
     slice1[3]=random.sample(list1[4], list2[4])
-for h1 in range(1,4):
-    gg = slice1[h1]
-    for h2 in range(0,2):
-        gd=gg[h2]
-        randomapi.append(gd)
+    print(str(slice1[3]))
+#for h1 in range(1,4):
+#    gg = slice1[h1]
+#    for h2 in range(0,2):
+ #       gd=gg[h2]
+  #      randomapi.append(gd)
 
 random.shuffle(randomapi)
 str2 = ','.join([str(x) for x in randomapi])
