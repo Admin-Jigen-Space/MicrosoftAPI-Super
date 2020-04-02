@@ -12,11 +12,13 @@ import json,sys,time,random
 
 
 
+
 config_list = {'每次轮数':2,
 	       '是否启动随机时间':'N','延时范围起始':600,'结束':1200,
 	       '是否开启随机api顺序':'Y',
-	       '是否开启各api延时':'N','分延时范围开始':2,'分结束':5}
-    
+	       '是否开启各api延时':'N','分延时范围开始':2,'分结束':5,
+	       '是否开启备用应用':'N'}
+
 num1 = [0]*len(id_list)
 path2=sys.path[0]+r'/randomapi.txt'
 
@@ -64,6 +66,20 @@ fc = open(path2, "r+")
 randapi = fc.read()
 fc.close()
 randomapi = randapi.split(',')
+def gettoken_2(refresh_token):
+    headers={'Content-Type':'application/x-www-form-urlencoded'
+            }
+    data={'grant_type': 'refresh_token',
+          'refresh_token': refresh_token,
+          'client_id':bk_id_list[a],
+          'client_secret':bk_secret_list[a],
+          'redirect_uri':'http://localhost:53682/'
+         }
+    html = req.post('https://login.microsoftonline.com/common/oauth2/v2.0/token',data=data,headers=headers)
+    jsontxt = json.loads(html.text)
+    refresh_token = jsontxt['refresh_token']
+    access_token = jsontxt['access_token']
+    return access_token
 def gettoken(refresh_token):
     headers={'Content-Type':'application/x-www-form-urlencoded'
             }
