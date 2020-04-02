@@ -17,6 +17,8 @@ path=sys.path[0]+r'/config/randomapi.txt'
 path5=sys.path[0]+r'/config/buconfig.txt'
 for i in range(0,3):
     slice1[i] = random.sample(list1[i], list2[i])
+print(str(slice1[0]))
+#randomapi.append(slice[0])
 b = random.randint(0,3)
 if b == 0:
     slice1[3]=random.sample(list1[5], list2[5])
