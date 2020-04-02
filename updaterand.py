@@ -8,7 +8,7 @@ import json,sys,time,random
 #以下空行不要删除，以便运行时插入机密
 
 slice1 = [0]*4
-randomapi=[1,2,6,7,21,22]
+randomapi=[1,2,6,7,21,22,29]
 list1 = [[3,4,5],[8,9,10,11],[23,24,25,26,27,28],[14,15,16,17],[18,19,20]]
 list2 = [1,2,2,2,2]
 path=sys.path[0]+r'/randomapi.txt'
