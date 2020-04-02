@@ -16,14 +16,14 @@ path=sys.path[0]+r'/randomapi.txt'
 for i in range(0,3):
     slice1[i] = random.sample(list1[i], list2[i])
 b = random.randint(0,3)
-print(str(b))
-print(random.sample(list1[3], list2[3]))
-print(random.sample(list1[4], list2[4]))
 if b == 0:
+    print("匹配0")
     slice1[3]=[12,13]
 if b == 1:
+    print("匹配1")
     slice1[3]=random.sample(list1[3], list2[3])
 if b == 2:
+    print("匹配2")
     slice1[3]=random.sample(list1[4], list2[4])
 ga = slice1[0]
 randomapi.append(ga[0])
