@@ -9,27 +9,26 @@ import json,sys,time,random
 
 
 
-slice1 = [0]*6
+slice1 = [0]*8
 randomapi=[1,2,6,7,21,22,29]
-list1 = [[3,4,5],[8,9,10,11],[23,24,25,26,27,28],[14,15,16,17],[18,19,20]]
-list2 = [1,2,2,2,2]
+list1 = [[3,4,5],[8,9,10,11],[23,24,25,26,27,28],[14,15,16,17],[18,19,20],[12,13]]
+list2 = [1,2,2,2,2,2]
 path=sys.path[0]+r'/config/randomapi.txt'
 path5=sys.path[0]+r'/config/buconfig.txt'
 for i in range(0,3):
     slice1[i] = random.sample(list1[i], list2[i])
 b = random.randint(0,3)
 if b == 0:
-    slice1[3]=[12,13]
+    slice1[3]=random.sample(list1[5], list2[5])
 if b == 1:
     slice1[3]=random.sample(list1[3], list2[3])
 if b == 2:
     slice1[3]=random.sample(list1[4], list2[4])
-ga = slice1[0]
-randomapi.append(ga[0])
 for a in range(1,4):
     gg = slice1[a]
     for c in range(0,2):
         randomapi.append(gg[c])
+
 random.shuffle(randomapi)
 str2 = ','.join([str(x) for x in randomapi])
 with open(path, 'w+') as f:
