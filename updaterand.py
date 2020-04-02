@@ -7,7 +7,7 @@ import json,sys,time,random
 #注册后一定要再点代表xxx授予管理员同意,否则outlook api无法调用
 #以下空行不要删除，以便运行时插入机密
 
-slice1 = [0]*4
+slice1 = [0]*5
 randomapi=[1,2,6,7,21,22]
 list1 = [[3,4,5],[8,9,10,11],[23,24,25,26,27,28],[14,15,16,17],[18,19,20]]
 list2 = [1,2,2,2,2]
@@ -24,7 +24,7 @@ if b == 2:
     slice1[3]=random.sample(list1[4], list2[4])
 ga = slice1[0]
 randomapi.append(ga[0])
-for a in range(1,3):
+for a in range(1,4):
     print('第'+str(a)+'组')
     gg = slice1[a]
     print(str(gg))
