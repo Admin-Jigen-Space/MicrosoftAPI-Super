@@ -17,11 +17,11 @@ for i in range(0,3):
     slice1[i] = random.sample(list1[i], list2[i])
 b = random.randint(0,3)
 print(str(b))
-if b == 0 :
+if b == 0:
     slice1[3]=[12,13]
-if b == 1 :
+if b == 1:
     slice1[3]=random.sample(list1[3], list2[3])
-if b == 2 :
+if b == 2:
     slice1[3]=random.sample(list1[4], list2[4])
 ga = slice1[0]
 randomapi.append(ga[0])
