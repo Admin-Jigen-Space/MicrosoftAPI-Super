@@ -26,7 +26,9 @@ if b == 1:
     slice1[3]=random.sample(list1[3],2)
 if b == 2:
     slice1[3]=random.sample(list1[4],2)
-
+print(str(slice1[1]))
+print(str(slice1[2]))
+print(str(slice1[3]))
 for h1 in range(1,4):
     gg=slice1[h1]
     for h2 in range(0,2):
