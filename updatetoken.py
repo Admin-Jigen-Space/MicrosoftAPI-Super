@@ -13,7 +13,8 @@ id_list2=[1]
 
  
 
-path4=sys.path[0]+r'/buconfig.txt'
+path4=sys.path[0]+r'/config/buconfig.txt'
+path5=sys.path[0]+r'/config/buconfig2.txt'
 fj = open(path4, "r+")
 daynum = fj.read()
 fj.close()
@@ -51,8 +52,11 @@ if id_list2 != dd2:
         main()
 if daynum >= 30:
     vv = '0'
+    vb = 'Y'
     with open(path4, 'w+') as fb:
         fb.write(vv)
+    with open(path5, 'w+') as fl:
+        fl.write(vb)   
 else:
     daynum+=1
     with open(path4, 'w+') as fb:
