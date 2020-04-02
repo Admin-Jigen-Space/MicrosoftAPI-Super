@@ -147,14 +147,14 @@ def main2():
             time.sleep(b)
             for a in range(0, len(id_list)):
                 c=random.randint(5,10)
-                path=sys.path[0]+r'/buckuptoken/'+str(a)+'.txt'
+                path=sys.path[0]+r'/backuptoken/'+str(a)+'.txt'
                 time.sleep(c)
                 testapi()
     else:
         for _ in range(config_list['每次轮数']): 
             for a in range(0, len(id_list)):
                 c=random.randint(5,10)
-                path=sys.path[0]+r'/buckuptoken/'+str(a)+'.txt'
+                path=sys.path[0]+r'/backuptoken/'+str(a)+'.txt'
                 time.sleep(c)
                 testapi()
 
