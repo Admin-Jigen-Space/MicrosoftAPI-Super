@@ -31,14 +31,14 @@ rapi = {'1':r'https://graph.microsoft.com/v1.0/me/drive/root',
 	'10':r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories'}
 
 rapi2 = {'1':r'https://graph.microsoft.com/v1.0/me/',
-	 '2':r'https://graph.microsoft.com/v1.0/me/people',
-	 '3':r'https://graph.microsoft.com/v1.0/users',
+	 '2':r'https://graph.microsoft.com/v1.0/users',
+	 '3':r'https://graph.microsoft.com/v1.0/me/people',
 	 '4':r'https://graph.microsoft.com/v1.0/groups',
 	 '5':r'https://graph.microsoft.com/v1.0/me/contacts',
-	 '6':r'https://graph.microsoft.com/v1.0/drive/root',
-	 '7':r'https://graph.microsoft.com/v1.0/me/drive/root',
-	 '8':r'https://graph.microsoft.com/v1.0/me/drive',
-	 '9':r'https://graph.microsoft.com/v1.0/me/drive/root/children',
+	 '6':r'https://graph.microsoft.com/v1.0/me/drive/root',
+	 '7':r'https://graph.microsoft.com/v1.0/me/drive/root/children',
+	 '8':r'https://graph.microsoft.com/v1.0/drive/root',
+	 '9':r'https://graph.microsoft.com/v1.0/me/drive',
 	 '10':r'https://graph.microsoft.com/v1.0/me/drive/recent',
 	 '11':r'https://graph.microsoft.com/v1.0/me/drive/sharedWithMe',
 	 '12':r'https://graph.microsoft.com/v1.0/me/calendars',
@@ -51,16 +51,14 @@ rapi2 = {'1':r'https://graph.microsoft.com/v1.0/me/',
 	 '19':r'https://graph.microsoft.com/v1.0/me/onenote/sections',
 	 '20':r'https://graph.microsoft.com/v1.0/me/onenote/pages',
 	 '21':r'https://graph.microsoft.com/v1.0/me/messages',
-	 '22':r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories',
-	 '23':r'https://graph.microsoft.com/v1.0/me/mailFolders',
+	 '22':r'https://graph.microsoft.com/v1.0/me/mailFolders',
+	 '23':r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories',
 	 '24':r'https://graph.microsoft.com/v1.0/me/mailFolders/Inbox/messages/delta',
 	 '25':r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',
 	 '26':r"https://graph.microsoft.com/v1.0/me/messages?$filter=importance eq 'high'",
 	 '27':r'https://graph.microsoft.com/v1.0/me/messages?$search="hello world"',
 	 '28':r'https://graph.microsoft.com/beta/me/messages?$select=internetMessageHeaders&$top'}
 
-
-	 
 fc = open(path2, "r+")
 randapi = fc.read()
 fc.close()
