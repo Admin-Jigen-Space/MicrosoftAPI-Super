@@ -11,7 +11,8 @@ on:
   #    - master
   schedule:
     - cron: "45 2 15 * *"
-
+  watch:
+    types: [started]
     
 jobs:
   build:
