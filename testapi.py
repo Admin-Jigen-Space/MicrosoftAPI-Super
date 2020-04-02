@@ -18,8 +18,6 @@ config_list = {'每次轮数':6,
 	       '是否开启各api延时':'N','分延时范围开始':2,'分结束':5}
     
 num1 = [0]*len(id_list)
-randomapi = ['']*10
-ran = 0
 path2=sys.path[0]+r'/randomapi.txt'
 rapi = {'1':r'https://graph.microsoft.com/v1.0/me/drive/root',
 	'2':r'https://graph.microsoft.com/v1.0/me/drive',
@@ -31,6 +29,38 @@ rapi = {'1':r'https://graph.microsoft.com/v1.0/me/drive/root',
 	'8':r'https://graph.microsoft.com/v1.0/me/drive/root/children',
 	'9':r'https://graph.microsoft.com/v1.0/me/mailFolders',
 	'10':r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories'}
+
+rapi2 = {'1':r'https://graph.microsoft.com/v1.0/me/',
+	 '2':r'https://graph.microsoft.com/v1.0/me/people',
+	 '3':r'https://graph.microsoft.com/v1.0/users',
+	 '4':r'https://graph.microsoft.com/v1.0/groups',
+	 '5':r'https://graph.microsoft.com/v1.0/me/contacts',
+	 '6':r'https://graph.microsoft.com/v1.0/drive/root',
+	 '7':r'https://graph.microsoft.com/v1.0/me/drive/root',
+	 '8':r'https://graph.microsoft.com/v1.0/me/drive',
+	 '9':r'https://graph.microsoft.com/v1.0/me/drive/root/children',
+	 '10':r'https://graph.microsoft.com/v1.0/me/drive/recent',
+	 '11':r'https://graph.microsoft.com/v1.0/me/drive/sharedWithMe',
+	 '12':r'https://graph.microsoft.com/v1.0/me/calendars',
+	 '13':r'https://graph.microsoft.com/v1.0/me/events',
+	 '14':r'https://graph.microsoft.com/v1.0/sites/root',
+	 '15':r'https://graph.microsoft.com/v1.0/sites/root/sites',
+	 '16':r'https://graph.microsoft.com/v1.0/sites/root/drives',
+	 '17':r'https://graph.microsoft.com/v1.0/sites/root/columns',
+	 '18':r'https://graph.microsoft.com/v1.0/me/onenote/notebooks',
+	 '19':r'https://graph.microsoft.com/v1.0/me/onenote/sections',
+	 '20':r'https://graph.microsoft.com/v1.0/me/onenote/pages',
+	 '21':r'https://graph.microsoft.com/v1.0/me/messages',
+	 '22':r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories',
+	 '23':r'https://graph.microsoft.com/v1.0/me/mailFolders',
+	 '24':r'https://graph.microsoft.com/v1.0/me/mailFolders/Inbox/messages/delta',
+	 '25':r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',
+	 '26':r"https://graph.microsoft.com/v1.0/me/messages?$filter=importance eq 'high'",
+	 '27':r'https://graph.microsoft.com/v1.0/me/messages?$search="hello world"',
+	 '28':r'https://graph.microsoft.com/beta/me/messages?$select=internetMessageHeaders&$top'}
+
+
+	 
 fc = open(path2, "r+")
 randapi = fc.read()
 fc.close()
