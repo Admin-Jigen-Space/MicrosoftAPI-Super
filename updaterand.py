@@ -7,11 +7,14 @@ import json,sys,time,random
 #注册后一定要再点代表xxx授予管理员同意,否则outlook api无法调用
 #以下空行不要删除，以便运行时插入机密
 
+
+
 slice1 = [0]*6
 randomapi=[1,2,6,7,21,22,29]
 list1 = [[3,4,5],[8,9,10,11],[23,24,25,26,27,28],[14,15,16,17],[18,19,20]]
 list2 = [1,2,2,2,2]
 path=sys.path[0]+r'/config/randomapi.txt'
+path5=sys.path[0]+r'/config/buconfig.txt'
 for i in range(0,3):
     slice1[i] = random.sample(list1[i], list2[i])
 b = random.randint(0,3)
@@ -30,4 +33,15 @@ for a in range(1,4):
 random.shuffle(randomapi)
 str2 = ','.join([str(x) for x in randomapi])
 with open(path, 'w+') as f:
-     f.write(str2)
+    f.write(str2)
+fe = open(path5, "r+")
+rfv = fe.read()
+fe.close()
+if rfv == 'Y':
+    str5 = 'N'
+    with open(path5, 'w+') as fn:
+        fn.write(str5)
+else:
+    str5 = 'Y'
+    with open(path5, 'w+') as fn:
+        fn.write(str5)
