@@ -1,4 +1,3 @@
-# 更新中，不要fork
 # AutoApiS-超级版
 
 AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR、AutoApiS
