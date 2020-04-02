@@ -16,6 +16,7 @@ path=sys.path[0]+r'/randomapi.txt'
 for i in range(0,3):
     slice1[i] = random.sample(list1[i], list2[i])
 b = random.randint(0,3)
+print(str(b))
 if b == 0 :
     slice1[3]=[12,13]
 if b == 1 :
