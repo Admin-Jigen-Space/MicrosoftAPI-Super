@@ -13,6 +13,11 @@ id_list2=[1]
 
  
 
+path4=sys.path[0]+r'/buconfig.txt'
+fj = open(path4, "r+")
+daynum = fj.read()
+fj.close()
+daynum=int(daynum)
 def gettoken(refresh_token):
     headers={'Content-Type':'application/x-www-form-urlencoded'
             }
@@ -44,3 +49,11 @@ if id_list2 != dd2:
         id_lists=id_list2
         secret_lists=secret_list2
         main()
+if daynum >= 30:
+    vv = 0
+    with open(path4, 'w+') as fb:
+        fb.write(vv)
+else:
+    daynum+=1
+    with open(path4, 'w+') as fb:
+        fb.write(str(daynum))
