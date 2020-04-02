@@ -71,7 +71,7 @@ fh = open(path3, "r+")
 buconfig = fh.read()
 fh.close()
 randomapi = randapi.split(',')
-def gettoken(refresh_token):
+def gettoken(refresh_token,a):
     headers={'Content-Type':'application/x-www-form-urlencoded'
             }
     data={'grant_type': 'refresh_token',
@@ -90,7 +90,7 @@ def testapi(path,a):
     refresh_token = fo.read()
     fo.close()
     localtime = time.asctime( time.localtime(time.time()) )
-    access_token=gettoken(refresh_token)
+    access_token=gettoken(refresh_token,a)
     headers={
     'Authorization':access_token,
     'Content-Type':'application/json'
