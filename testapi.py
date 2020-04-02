@@ -178,5 +178,4 @@ else:
     else:
         id_lists=id_list
         secret_lists=secret_list
-	mian()
-        
+        main()
