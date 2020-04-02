@@ -85,7 +85,7 @@ def gettoken(refresh_token):
     refresh_token = jsontxt['refresh_token']
     access_token = jsontxt['access_token']
     return access_token
-def testapi():
+def testapi(path):
     fo = open(path, "r+")
     refresh_token = fo.read()
     fo.close()
@@ -132,14 +132,14 @@ def main():
                 c=random.randint(5,10)
                 path=sys.path[0]+r'/token/'+str(a)+'.txt'
                 time.sleep(c)
-                testapi()
+                testapi(path)
     else:
         for _ in range(config_list['每次轮数']): 
             for a in range(0, len(id_list)):
                 c=random.randint(5,10)
                 path=sys.path[0]+r'/token/'+str(a)+'.txt'
                 time.sleep(c)
-                testapi()
+                testapi(path)
 def main2():
     if config_list['是否启动随机时间'] == 'Y':        
         for _ in range(config_list['每次轮数']): 
@@ -149,14 +149,14 @@ def main2():
                 c=random.randint(5,10)
                 path=sys.path[0]+r'/backuptoken/'+str(a)+'.txt'
                 time.sleep(c)
-                testapi()
+                testapi(path)
     else:
         for _ in range(config_list['每次轮数']): 
             for a in range(0, len(id_list)):
                 c=random.randint(5,10)
                 path=sys.path[0]+r'/backuptoken/'+str(a)+'.txt'
                 time.sleep(c)
-                testapi()
+                testapi(path)
 
 if config_list['是否开启测试'] == 'Y':
     id_lists=id_list
