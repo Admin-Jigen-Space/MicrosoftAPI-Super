@@ -48,7 +48,19 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR、AutoApiS
   ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApi/fork.png)
   
 * 根据[原教程](https://blog.432100.xyz/index.php/archives/50/)获取应用id、机密、refresh_token（自己复制保存，注意区分id机密，千万别弄混了）
-   
+  
+  **注意**
+  **赋予api权限的时候，选择以下几个**
+  
+                Calendars.ReadWrite、Contacts.ReadWrite、Directory.ReadWrite.All、
+                
+                Files.ReadWrite.All、MailboxSettings.Read、Mail.ReadWrite、
+                
+                Notes.ReadWrite.All、People.Read.All、Sites.ReadWrite.All、
+                
+                Tasks.ReadWrite、User.ReadWrite.All、User.Read
+
+  
   在你电脑上新建多个txt文本，例如你有两个账号，则账号 0 对应为 0.txt , 账号 1 对应为 1.txt , 以此类推。(只有一个账号，则只需一个0.txt，一定要从0开始数)
   
   再把各个账号对应的refresh_token粘贴进对应的txt文件。
@@ -92,11 +104,24 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR、AutoApiS
          
          * 延时范围起始，结束：例如设置600跟1200，则“多久”会在600到1200秒这个范围随机生成一个数，到时间开启下一轮调用
          
-         * 是否开启随机api顺序:随机排序10个api，我设置的是15天换一次顺序，这个“15天”在.github/workflow/randapi.yml的schedule的cron里设置
+         * 是否开启随机api顺序:根据一定规则从28个api抽13个随机排序28，我设置的是30天换一次顺序。不开启则默认原教程10个api。
          
          * 是否开启各api延时：就是每个api调用要不要停一下才开始下一个api调用。（个人建议不开）
            
            同样有范围，例如：分延时范围开始跟分结束分别设置为10，20.则会在10到20秒这个范围随机生成一个数，然后调用下一个api
+           
+         * 是否开启副应用：更换应用id调用api。同样每30天更新一次应用id。（目前只至支持1个副应用）
+         
+           开启后，需在设置的secret再增加两条：
+           ID_LIST2
+           内容为： id_list2=[r'帐号1副应用id',r'帐号n副应用id']
+
+           KEY_LIST2
+           内容为： secret_list2=[r'帐号1副应用机密',r'帐号n副应用机密']
+           
+           然后类似的在backuptoken文件夹里放入对应的副应用的0.txt....n.txt。
+           
+           （这里看不懂的话，直接选N吧）
            
            （由于延时需要长时间运行，测试的时候建议把随机、延时都关了，迅速运行完看看看情况，再更改喜欢的配置）
   
