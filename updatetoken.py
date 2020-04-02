@@ -3,8 +3,8 @@ import requests as req
 import json,sys,time,random
 
 
-dd2=[]
-id_list2=[]
+dd2=[1]
+id_list2=[1]
 
 
 
@@ -38,7 +38,7 @@ for a in range(0, len(id_list)):
     id_lists=id_list
     secret_lists=secret_list
     main()
-if id_list2 != dd:
+if id_list2 != dd2:
     for a in range(0, len(id_list)):
         path=sys.path[0]+r'/backuptoken/'+str(a)+'.txt'
         id_lists=id_list2
