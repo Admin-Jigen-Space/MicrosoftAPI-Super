@@ -24,8 +24,8 @@ if b == 1:
     slice1[3]=random.sample(list1[3], list2[3])
 if b == 2:
     slice1[3]=random.sample(list1[4], list2[4])
-for a in range(1,4):
-    gg = slice1[a]
+for h1 in range(1,4):
+    gg = slice1[h1]
     for c in range(0,2):
         randomapi.append(gg[c])
 
