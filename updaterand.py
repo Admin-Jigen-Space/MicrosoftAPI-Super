@@ -9,7 +9,7 @@ import json,sys,time,random
 
 
 
-slice1 = [[],[],[],[],[],[],[]]
+slice1 = []*6
 randomapi=[1,2,6,7,21,22,29]
 list1 = [[3,4,5],[8,9,10,11],[23,24,25,26,27,28],[14,15,16,17],[18,19,20],[12,13]]
 list2 = [1,2,2,2,2,2]
@@ -19,7 +19,7 @@ for i in range(0,3):
     slice1[i] = random.sample(list1[i],list2[i])
 gk=slice1[0]
 randomapi.append(gk[0])
-b = random.randint(0,3)
+b = random.randint(0,2)
 if b == 0:
     slice1[3]=random.sample(list1[5],2)
 if b == 1:
@@ -29,10 +29,10 @@ if b == 2:
 print(str(slice1[1]))
 print(str(slice1[2]))
 print(str(slice1[3]))
-for h1 in range(1,4):
-    gg=slice1[h1]
-    for h2 in range(0,2):
-        gd=gg[h2]
+for h in range(1,4):
+    gg=slice1[h]
+    for h1 in range(0,2):
+        gd=gg[h1]
         randomapi.append(gd)
 
 random.shuffle(randomapi)
