@@ -44,7 +44,6 @@ jobs:
         sed -i '13 r keylist2.txt' updatetoken2.py
     - name: Update token #更新token
       run: | 
-        echo `date +"%Y-%m-%d %H:%M:%S"` begin > time.log
         python updatetoken2.py
     - name: Delete secrets config #删除机密
       run: | 
