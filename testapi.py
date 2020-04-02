@@ -19,46 +19,47 @@ config_list = {'每次轮数':6,
     
 num1 = [0]*len(id_list)
 path2=sys.path[0]+r'/randomapi.txt'
-rapi = {'1':r'https://graph.microsoft.com/v1.0/me/drive/root',
-	'2':r'https://graph.microsoft.com/v1.0/me/drive',
-	'3':r'https://graph.microsoft.com/v1.0/drive/root',
-	'4':r'https://graph.microsoft.com/v1.0/users ',
-	'5':r'https://graph.microsoft.com/v1.0/me/messages',
-	'6':r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',
-	'7':r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',
-	'8':r'https://graph.microsoft.com/v1.0/me/drive/root/children',
-	'9':r'https://graph.microsoft.com/v1.0/me/mailFolders',
-	'10':r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories'}
 
-rapi2 = {'1':r'https://graph.microsoft.com/v1.0/me/',
-	 '2':r'https://graph.microsoft.com/v1.0/users',
-	 '3':r'https://graph.microsoft.com/v1.0/me/people',
-	 '4':r'https://graph.microsoft.com/v1.0/groups',
-	 '5':r'https://graph.microsoft.com/v1.0/me/contacts',
-	 '6':r'https://graph.microsoft.com/v1.0/me/drive/root',
-	 '7':r'https://graph.microsoft.com/v1.0/me/drive/root/children',
-	 '8':r'https://graph.microsoft.com/v1.0/drive/root',
-	 '9':r'https://graph.microsoft.com/v1.0/me/drive',
-	 '10':r'https://graph.microsoft.com/v1.0/me/drive/recent',
-	 '11':r'https://graph.microsoft.com/v1.0/me/drive/sharedWithMe',
-	 '12':r'https://graph.microsoft.com/v1.0/me/calendars',
-	 '13':r'https://graph.microsoft.com/v1.0/me/events',
-	 '14':r'https://graph.microsoft.com/v1.0/sites/root',
-	 '15':r'https://graph.microsoft.com/v1.0/sites/root/sites',
-	 '16':r'https://graph.microsoft.com/v1.0/sites/root/drives',
-	 '17':r'https://graph.microsoft.com/v1.0/sites/root/columns',
-	 '18':r'https://graph.microsoft.com/v1.0/me/onenote/notebooks',
-	 '19':r'https://graph.microsoft.com/v1.0/me/onenote/sections',
-	 '20':r'https://graph.microsoft.com/v1.0/me/onenote/pages',
-	 '21':r'https://graph.microsoft.com/v1.0/me/messages',
-	 '22':r'https://graph.microsoft.com/v1.0/me/mailFolders',
-	 '23':r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories',
-	 '24':r'https://graph.microsoft.com/v1.0/me/mailFolders/Inbox/messages/delta',
-	 '25':r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',
-	 '26':r"https://graph.microsoft.com/v1.0/me/messages?$filter=importance eq 'high'",
-	 '27':r'https://graph.microsoft.com/v1.0/me/messages?$search="hello world"',
-	 '28':r'https://graph.microsoft.com/beta/me/messages?$select=internetMessageHeaders&$top'}
-
+rapi = {'1':r'https://graph.microsoft.com/v1.0/me/',
+	'2':r'https://graph.microsoft.com/v1.0/users',
+	'3':r'https://graph.microsoft.com/v1.0/me/people',
+	'4':r'https://graph.microsoft.com/v1.0/groups',
+	'5':r'https://graph.microsoft.com/v1.0/me/contacts',
+	'6':r'https://graph.microsoft.com/v1.0/me/drive/root',
+	'7':r'https://graph.microsoft.com/v1.0/me/drive/root/children',
+	'8':r'https://graph.microsoft.com/v1.0/drive/root',
+	'9':r'https://graph.microsoft.com/v1.0/me/drive',
+	'10':r'https://graph.microsoft.com/v1.0/me/drive/recent',
+	'11':r'https://graph.microsoft.com/v1.0/me/drive/sharedWithMe',
+	'12':r'https://graph.microsoft.com/v1.0/me/calendars',
+	'13':r'https://graph.microsoft.com/v1.0/me/events',
+	'14':r'https://graph.microsoft.com/v1.0/sites/root',
+	'15':r'https://graph.microsoft.com/v1.0/sites/root/sites',
+	'16':r'https://graph.microsoft.com/v1.0/sites/root/drives',
+	'17':r'https://graph.microsoft.com/v1.0/sites/root/columns',
+	'18':r'https://graph.microsoft.com/v1.0/me/onenote/notebooks',
+	'19':r'https://graph.microsoft.com/v1.0/me/onenote/sections',
+	'20':r'https://graph.microsoft.com/v1.0/me/onenote/pages',
+	'21':r'https://graph.microsoft.com/v1.0/me/messages',
+	'22':r'https://graph.microsoft.com/v1.0/me/mailFolders',
+	'23':r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories',
+	'24':r'https://graph.microsoft.com/v1.0/me/mailFolders/Inbox/messages/delta',
+	'25':r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',
+	'26':r"https://graph.microsoft.com/v1.0/me/messages?$filter=importance eq 'high'",
+	'27':r'https://graph.microsoft.com/v1.0/me/messages?$search="hello world"',
+	'28':r'https://graph.microsoft.com/beta/me/messages?$select=internetMessageHeaders&$top',
+        '29':r'https://api.powerbi.com/v1.0/myorg/apps'}
+rapi2 = {'1':r'https://graph.microsoft.com/v1.0/me/drive/root',
+	 '2':r'https://graph.microsoft.com/v1.0/me/drive',
+	 '3':r'https://graph.microsoft.com/v1.0/drive/root',
+	 '4':r'https://graph.microsoft.com/v1.0/users',
+	 '5':r'https://graph.microsoft.com/v1.0/me/messages',
+	 '6':r'https://graph.microsoft.com/v1.0/me/mailFolders/inbox/messageRules',
+	 '7':r'https://graph.microsoft.com/v1.0/me/mailFolders/Inbox/messages/delta',
+	 '8':r'https://graph.microsoft.com/v1.0/me/drive/root/children',
+	 '9':r'https://graph.microsoft.com/v1.0/me/mailFolders',
+	 '10':r'https://graph.microsoft.com/v1.0/me/outlook/masterCategories',
+	 '11':r'https://api.powerbi.com/v1.0/myorg/apps'}
 fc = open(path2, "r+")
 randapi = fc.read()
 fc.close()
@@ -88,8 +89,9 @@ def main():
     'Content-Type':'application/json'
     }
     print('账号 '+str(a)+' 此次运行开始时间为 :', localtime)
+    print('总api数13个，请自行确认个数')
     if config_list['是否开启随机api顺序'] == 'Y':
-        for ra in range(10):
+        for ra in range(14):
             rana = str(randomapi[ra])
             try:
                 if req.get(rapi[rana],headers=headers).status_code == 200:
@@ -102,10 +104,10 @@ def main():
                 print("pass")
                 pass
     else:
-        for ra in range(1,11):
+        for ra in range(1,12):
             rana = str(ra)
             try:
-                if req.get(rapi[rana],headers=headers).status_code == 200:
+                if req.get(rapi2[rana],headers=headers).status_code == 200:
                     num1[a]+=1
                     print("账号"+str(a)+"的"+rana+"号api调用成功,所有api总成功"+str(num1[a])+'次')
                     if config_list['是否开启各api延时'] != 'N':
