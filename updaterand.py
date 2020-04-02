@@ -25,9 +25,9 @@ if b == 1:
 if b == 2:
     slice1[3]=random.sample(list1[4], list2[4])
 
-for h1 in range(1,4):
-    print(str(h1))
-#    gg = slice1[h1]
+#for h1 in range(1,4):
+gg = slice1[1]
+print(str(gg))
 #    for h2 in range(0,2):
  #       gd=gg[h2]
   #      randomapi.append(gd)
