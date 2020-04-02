@@ -1,12 +1,10 @@
 # -*- coding: UTF-8 -*-
 import requests as req
 import json,sys,time,random
-#先注册azure应用,确保应用有以下权限:
-#files:	Files.Read.All、Files.ReadWrite.All、Sites.Read.All、Sites.ReadWrite.All
-#user:	User.Read.All、User.ReadWrite.All、Directory.Read.All、Directory.ReadWrite.All
-#mail:  Mail.Read、Mail.ReadWrite、MailboxSettings.Read、MailboxSettings.ReadWrite
-#注册后一定要再点代表xxx授予管理员同意,否则outlook api无法调用
-#以下空行不要删除，以便运行时插入机密
+
+
+dd2=[]
+id_list2=[]
 
 
 
@@ -20,8 +18,8 @@ def gettoken(refresh_token):
             }
     data={'grant_type': 'refresh_token',
           'refresh_token': refresh_token,
-          'client_id':id_list[a],
-          'client_secret':secret_list[a],
+          'client_id':id_lists[a],
+          'client_secret':secret_lists[a],
           'redirect_uri':'http://localhost:53682/'
          }
     html = req.post('https://login.microsoftonline.com/common/oauth2/v2.0/token',data=data,headers=headers)
@@ -37,5 +35,13 @@ def main():
     access_token=gettoken(refresh_token)
 for a in range(0, len(id_list)):
     path=sys.path[0]+r'/token/'+str(a)+'.txt'
+    id_lists=id_list
+    secret_lists=secret_list
     main()
-		    
+if id_list2 != dd:
+    for a in range(0, len(id_list)):
+        path=sys.path[0]+r'/backuptoken/'+str(a)+'.txt'
+        id_lists=id_list2
+	secret_lists=secret_list2
+        main()
+    
