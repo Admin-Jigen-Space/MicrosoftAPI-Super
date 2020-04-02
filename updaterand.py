@@ -20,13 +20,16 @@ for i in range(0,3):
 b = random.randint(0,3)
 if b == 0:
     slice1[3]=random.sample(list1[5], list2[5])
-    print(str(slice1[3])+type(slice1[3]))
+    str9=str(type(slice1[3]))
+    print(str(slice1[3])+str9)
 if b == 1:
     slice1[3]=random.sample(list1[3], list2[3])
-    print(str(slice1[3])+type(slice1[3]))
+    str9=str(type(slice1[3]))
+    print(str(slice1[3])+str9)
 if b == 2:
     slice1[3]=random.sample(list1[4], list2[4])
-    print(str(slice1[3])+type(slice1[3]))
+    str9=str(type(slice1[3]))
+    print(str(slice1[3])+str9)
 #for h1 in range(1,4):
 #    gg = slice1[h1]
 #    for h2 in range(0,2):
