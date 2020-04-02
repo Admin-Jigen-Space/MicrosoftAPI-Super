@@ -123,6 +123,44 @@ def testapi(path,a):
             except:
                 print("pass")
                 pass
+def testapi2(path,a):
+    fo = open(path, "r+")
+    refresh_token = fo.read()
+    fo.close()
+    localtime = time.asctime( time.localtime(time.time()) )
+    access_token=gettoken(refresh_token,a)
+    headers={
+    'Authorization':access_token,
+    'Content-Type':'application/json'
+    }
+    print('备用账号 '+str(a)+' 此次运行开始时间为 :', localtime)
+    print('总api数13个，请自行确认个数')
+    if config_list['是否开启随机api顺序'] == 'Y':
+        for ra in range(14):
+            rana = str(randomapi[ra])
+            try:
+                if req.get(rapi[rana],headers=headers).status_code == 200:
+                    num1[a]+=1
+                    print("备用账号"+str(a)+"的"+rana+"号api调用成功,所有api总成功"+str(num1[a])+'次')
+                    if config_list['是否开启各api延时'] != 'N':
+                        gg = random.randint(config_list['分延时范围开始'],config_list['分结束'])
+                        time.sleep(gg)
+            except:
+                print("pass")
+                pass
+    else:
+        for ra in range(1,12):
+            rana = str(ra)
+            try:
+                if req.get(rapi2[rana],headers=headers).status_code == 200:
+                    num1[a]+=1
+                    print("备用账号"+str(a)+"的"+rana+"号api调用成功,所有api总成功"+str(num1[a])+'次')
+                    if config_list['是否开启各api延时'] != 'N':
+                        gg = random.randint(config_list['分延时范围开始'],config_list['分结束'])
+                        time.sleep(gg)
+            except:
+                print("pass")
+                pass
 def main():
     if config_list['是否启动随机时间'] == 'Y':        
         for _ in range(config_list['每次轮数']): 
@@ -149,14 +187,14 @@ def main2():
                 c=random.randint(5,10)
                 path=sys.path[0]+r'/backuptoken/'+str(a)+'.txt'
                 time.sleep(c)
-                testapi(path,a)
+                testapi2(path,a)
     else:
         for _ in range(config_list['每次轮数']): 
             for a in range(0, len(id_list)):
                 c=random.randint(5,10)
                 path=sys.path[0]+r'/backuptoken/'+str(a)+'.txt'
                 time.sleep(c)
-                testapi(path,a)
+                testapi2(path,a)
 
 if config_list['是否开启测试'] == 'Y':
     id_lists=id_list
