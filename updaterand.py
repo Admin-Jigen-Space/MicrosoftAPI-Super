@@ -25,9 +25,7 @@ if b == 2:
 ga = slice1[0]
 randomapi.append(ga[0])
 for a in range(1,4):
-    print('第'+str(a)+'组')
     gg = slice1[a]
-    print(str(gg))
     for c in range(0,2):
         randomapi.append(gg[c])
 
