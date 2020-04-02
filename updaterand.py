@@ -19,12 +19,15 @@ b = random.randint(0,3)
 if b == 0:
     print("匹配0")
     slice1[3]=[12,13]
+    print(str(slice1[3])+'第3组')
 if b == 1:
     print("匹配1")
     slice1[3]=random.sample(list1[3], list2[3])
+    print(str(slice1[3])+'第3组')
 if b == 2:
     print("匹配2")
     slice1[3]=random.sample(list1[4], list2[4])
+    print(str(slice1[3])+'第3组')
 ga = slice1[0]
 randomapi.append(ga[0])
 for a in range(1,3):
