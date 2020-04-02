@@ -53,6 +53,8 @@ jobs:
         rm -f updatetoken2.py
         rm -f idlist.txt
         rm -f keylist.txt
+        rm -f idlist2.txt
+        rm -f keylist2.txt
     - name: Commit #上传新的refresh_token到仓库
       run: |
         git config --global user.email AutoupdateRobot@email.com
