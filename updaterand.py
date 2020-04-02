@@ -12,7 +12,6 @@ randomapi=[1,2,6,7,21,22,29]
 list1 = [[3,4,5],[8,9,10,11],[23,24,25,26,27,28],[14,15,16,17],[18,19,20]]
 list2 = [1,2,2,2,2]
 path=sys.path[0]+r'/randomapi.txt'
-path2=sys.path[0]+r'/buconfig.txt'
 for i in range(0,3):
     slice1[i] = random.sample(list1[i], list2[i])
 b = random.randint(0,3)
@@ -32,14 +31,3 @@ random.shuffle(randomapi)
 str2 = ','.join([str(x) for x in randomapi])
 with open(path, 'w+') as f:
      f.write(str2)
-fo = open(path2, "r+")
-buconfig = fo.read()
-fo.close()
-if buconfig == 'Y':
-    str4 = 'N'
-    with open(path2, 'w+') as fg:
-        fg.write(str4)
-else:
-    str4 = 'Y'
-    with open(path2, 'w+') as fg:
-        fg.write(str4)
