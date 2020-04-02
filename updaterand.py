@@ -26,7 +26,7 @@ if b == 2:
     slice1[3]=random.sample(list1[4], list2[4])
 
 #for h1 in range(1,4):
-gg = random.sample(list1[5], list2[5])
+gg = random.sample(list1[3], list2[3])
 print(str(gg))
 #    for h2 in range(0,2):
  #       gd=gg[h2]
