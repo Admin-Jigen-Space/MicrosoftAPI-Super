@@ -13,12 +13,7 @@ id_list2=[1]
 
  
 
-path4=sys.path[0]+r'/config/buconfig.txt'
-path5=sys.path[0]+r'/config/buconfig2.txt'
-fj = open(path4, "r+")
-daynum = fj.read()
-fj.close()
-daynum=int(daynum)
+
 def gettoken(refresh_token):
     headers={'Content-Type':'application/x-www-form-urlencoded'
             }
