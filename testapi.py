@@ -22,8 +22,8 @@ config_list = {'每次轮数':2,
 	       '是否开启备用应用':'Y','是否开启测试':'N'}
 
 num1 = [0]*len(id_list)
-path2=sys.path[0]+r'/randomapi.txt'
-path3=sys.path[0]+r'/buconfig.txt'
+path2=sys.path[0]+r'/config/randomapi.txt'
+path3=sys.path[0]+r'/config/buconfig2.txt'
 rapi = {'1':r'https://graph.microsoft.com/v1.0/me/',
 	'2':r'https://graph.microsoft.com/v1.0/users',
 	'3':r'https://graph.microsoft.com/v1.0/me/people',
