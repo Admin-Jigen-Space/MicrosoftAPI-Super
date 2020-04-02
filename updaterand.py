@@ -28,7 +28,6 @@ for a in range(1,4):
     gg = slice1[a]
     for c in range(0,2):
         randomapi.append(gg[c])
-
 random.shuffle(randomapi)
 str2 = ','.join([str(x) for x in randomapi])
 with open(path, 'w+') as f:
