@@ -11,7 +11,7 @@ slice1 = [0]*6
 randomapi=[1,2,6,7,21,22,29]
 list1 = [[3,4,5],[8,9,10,11],[23,24,25,26,27,28],[14,15,16,17],[18,19,20]]
 list2 = [1,2,2,2,2]
-path=sys.path[0]+r'/randomapi.txt'
+path=sys.path[0]+r'/config/randomapi.txt'
 for i in range(0,3):
     slice1[i] = random.sample(list1[i], list2[i])
 b = random.randint(0,3)
