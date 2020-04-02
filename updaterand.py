@@ -23,8 +23,11 @@ if b == 1 :
     slice1[3]=random.sample(list1[3], list2[3])
 if b == 2 :
     slice1[3]=random.sample(list1[4], list2[4])
-for a in range(0,4):
-    randomapi.append(slice1[a])
+randomapi.append(slice1[0])
+for a in range(1,3):
+    gg = slice1[a]
+    for b in range(0,2):
+        randomapi.append(gg[b])
 
 random.shuffle(randomapi)
 str2 = ','.join([str(x) for x in randomapi])
