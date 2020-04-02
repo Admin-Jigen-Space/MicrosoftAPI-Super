@@ -25,9 +25,6 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: 3.8
-    - name: Install requests #安装requests
-      run: |
-        pip install requests
     - name: Update randapi #更新api排序
       run: | 
         python updaterand.py
