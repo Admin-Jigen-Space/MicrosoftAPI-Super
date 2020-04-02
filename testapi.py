@@ -13,15 +13,17 @@ import json,sys,time,random
 
 
 
+
+
 config_list = {'每次轮数':2,
 	       '是否启动随机时间':'N','延时范围起始':600,'结束':1200,
 	       '是否开启随机api顺序':'Y',
 	       '是否开启各api延时':'N','分延时范围开始':2,'分结束':5,
-	       '是否开启备用应用':'N'}
+	       '是否开启备用应用':'N','是否开启测试':'N'}
 
 num1 = [0]*len(id_list)
 path2=sys.path[0]+r'/randomapi.txt'
-
+path3=sys.path[0]+r'/buconfig.txt'
 rapi = {'1':r'https://graph.microsoft.com/v1.0/me/',
 	'2':r'https://graph.microsoft.com/v1.0/users',
 	'3':r'https://graph.microsoft.com/v1.0/me/people',
@@ -65,28 +67,17 @@ rapi2 = {'1':r'https://graph.microsoft.com/v1.0/me/drive/root',
 fc = open(path2, "r+")
 randapi = fc.read()
 fc.close()
+fh = open(path3, "r+")
+buconfig = fh.read()
+fh.close()
 randomapi = randapi.split(',')
-def gettoken_2(refresh_token):
-    headers={'Content-Type':'application/x-www-form-urlencoded'
-            }
-    data={'grant_type': 'refresh_token',
-          'refresh_token': refresh_token,
-          'client_id':bk_id_list[a],
-          'client_secret':bk_secret_list[a],
-          'redirect_uri':'http://localhost:53682/'
-         }
-    html = req.post('https://login.microsoftonline.com/common/oauth2/v2.0/token',data=data,headers=headers)
-    jsontxt = json.loads(html.text)
-    refresh_token = jsontxt['refresh_token']
-    access_token = jsontxt['access_token']
-    return access_token
 def gettoken(refresh_token):
     headers={'Content-Type':'application/x-www-form-urlencoded'
             }
     data={'grant_type': 'refresh_token',
           'refresh_token': refresh_token,
-          'client_id':id_list[a],
-          'client_secret':secret_list[a],
+          'client_id':id_lists[a],
+          'client_secret':secret_lists[a],
           'redirect_uri':'http://localhost:53682/'
          }
     html = req.post('https://login.microsoftonline.com/common/oauth2/v2.0/token',data=data,headers=headers)
@@ -94,7 +85,7 @@ def gettoken(refresh_token):
     refresh_token = jsontxt['refresh_token']
     access_token = jsontxt['access_token']
     return access_token
-def main():
+def testapi():
     fo = open(path, "r+")
     refresh_token = fo.read()
     fo.close()
@@ -131,21 +122,61 @@ def main():
                         time.sleep(gg)
             except:
                 print("pass")
-                pass    
-if config_list['是否启动随机时间'] == 'Y':        
-    for _ in range(config_list['每次轮数']): 
-        b=random.randint(config_list['延时范围起始'],config_list['结束'])
-        time.sleep(b)
-        for a in range(0, len(id_list)):
-            c=random.randint(5,10)
-            path=sys.path[0]+r'/token/'+str(a)+'.txt'
-            time.sleep(c)
-            main()
+                pass
+def main():
+    if config_list['是否启动随机时间'] == 'Y':        
+        for _ in range(config_list['每次轮数']): 
+            b=random.randint(config_list['延时范围起始'],config_list['结束'])
+            time.sleep(b)
+            for a in range(0, len(id_list)):
+                c=random.randint(5,10)
+                path=sys.path[0]+r'/token/'+str(a)+'.txt'
+                time.sleep(c)
+                testapi()
+    else:
+        for _ in range(config_list['每次轮数']): 
+            for a in range(0, len(id_list)):
+                c=random.randint(5,10)
+                path=sys.path[0]+r'/token/'+str(a)+'.txt'
+                time.sleep(c)
+                testapi()
+def main2():
+    if config_list['是否启动随机时间'] == 'Y':        
+        for _ in range(config_list['每次轮数']): 
+            b=random.randint(config_list['延时范围起始'],config_list['结束'])
+            time.sleep(b)
+            for a in range(0, len(id_list)):
+                c=random.randint(5,10)
+                path=sys.path[0]+r'/buckuptoken/'+str(a)+'.txt'
+                time.sleep(c)
+                testapi()
+    else:
+        for _ in range(config_list['每次轮数']): 
+            for a in range(0, len(id_list)):
+                c=random.randint(5,10)
+                path=sys.path[0]+r'/buckuptoken/'+str(a)+'.txt'
+                time.sleep(c)
+                testapi()
+
+if config_list['是否开启测试'] == 'Y':
+    id_lists=id_list
+    secret_lists=secret_list
+    main()
+    id_lists=id_list2
+    secret_lists=secret_list2
+    main2()
 else:
-    for _ in range(config_list['每次轮数']): 
-        for a in range(0, len(id_list)):
-            c=random.randint(5,10)
-            path=sys.path[0]+r'/token/'+str(a)+'.txt'
-            time.sleep(c)
+    if config_list['是否开启备用应用'] == 'Y':
+        if buconfig == 'Y':
+            id_lists=id_list
+            secret_lists=secret_list
             main()
-		    
+        else:
+            id_lists=id_list2
+            secret_lists=secret_list2
+            main2()
+    else:
+        id_lists=id_list
+        secret_lists=secret_list
+	mian()
+        
