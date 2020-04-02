@@ -50,14 +50,3 @@ if id_list2 != dd2:
         id_lists=id_list2
         secret_lists=secret_list2
         main()
-if daynum >= 30:
-    vv = '0'
-    vb = 'Y'
-    with open(path4, 'w+') as fb:
-        fb.write(vv)
-    with open(path5, 'w+') as fl:
-        fl.write(vb)   
-else:
-    daynum+=1
-    with open(path4, 'w+') as fb:
-        fb.write(str(daynum))
