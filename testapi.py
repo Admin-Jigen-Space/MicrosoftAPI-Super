@@ -170,14 +170,14 @@ def main():
         for _ in range(config_list['每次轮数']): 
             b=random.randint(config_list['延时范围起始'],config_list['结束'])
             time.sleep(b)
-            for a in range(0, len(id_list)):
+            for a in range(0, len(id_lists)):
                 c=random.randint(5,10)
                 path=sys.path[0]+r'/token/'+str(a)+'.txt'
                 time.sleep(c)
                 testapi(path,a)
     else:
         for _ in range(config_list['每次轮数']): 
-            for a in range(0, len(id_list)):
+            for a in range(0, len(id_lists)):
                 c=random.randint(5,10)
                 path=sys.path[0]+r'/token/'+str(a)+'.txt'
                 time.sleep(c)
@@ -187,14 +187,14 @@ def main2():
         for _ in range(config_list['每次轮数']): 
             b=random.randint(config_list['延时范围起始'],config_list['结束'])
             time.sleep(b)
-            for a in range(0, len(id_list)):
+            for a in range(0, len(id_lists)):
                 c=random.randint(5,10)
                 path=sys.path[0]+r'/backuptoken/'+str(a)+'.txt'
                 time.sleep(c)
                 testapi2(path,a)
     else:
         for _ in range(config_list['每次轮数']): 
-            for a in range(0, len(id_list)):
+            for a in range(0, len(id_lists)):
                 c=random.randint(5,10)
                 path=sys.path[0]+r'/backuptoken/'+str(a)+'.txt'
                 time.sleep(c)
