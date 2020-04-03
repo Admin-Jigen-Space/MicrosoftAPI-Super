@@ -57,7 +57,7 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR、AutoApiS
                 
                 Notes.ReadWrite.All、People.Read.All、Sites.ReadWrite.All、
                 
-                Tasks.ReadWrite、User.ReadWrite.All、User.Read
+                Tasks.ReadWrite、User.ReadWrite.All
 
   
   在你电脑上新建多个txt文本，例如你有两个账号，则账号 0 对应为 0.txt , 账号 1 对应为 1.txt , 以此类推。(只有一个账号，则只需一个0.txt，一定要从0开始数)
