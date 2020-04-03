@@ -125,6 +125,8 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR、AutoApiS
          
          * 是否开启测试：配合备用应用模式使用，选Y则同时测试各账号的主副应用，看看主副应用是否都能成功调用api。测试完改回N
          （备用模式跟测试模式看不懂都选N）
+         
+         
            （由于延时需要长时间运行，测试的时候建议把随机、延时都关了，迅速运行完看看看情况，再更改喜欢的配置）
   
 * 第五步，进入你的个人设置页面(右上角头像 Settings，不是仓库里的 Settings)，选择 Developer settings > Personal access tokens > Generate new token,
