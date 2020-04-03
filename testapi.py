@@ -98,9 +98,6 @@ def testapi(path,a):
     print('账号 '+str(a)+' 此次运行开始时间为 :', localtime)
     if config_list['是否开启随机api顺序'] == 'Y':
         print('总api数13个，请自行确认个数')
-    else:
-        print('总api数10个，请自行确认个数')
-    if config_list['是否开启随机api顺序'] == 'Y':
         for ra in range(14):
             rana = str(randomapi[ra])
             try:
@@ -114,6 +111,7 @@ def testapi(path,a):
                 print("pass")
                 pass
     else:
+        print('总api数10个，请自行确认个数')
         for ra in range(1,12):
             rana = str(ra)
             try:
