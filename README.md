@@ -94,7 +94,9 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR、AutoApiS
   
 * 第四步，修改参数配置
   
-  你项目的testapi.py文件第15行有个config_list
+  你项目的testapi.py文件第15行有个config_list，更改相应选项完成配置（看不懂可直接掠过）
+  
+  
   
        各参数说明：
          * 每次轮数：每启动一次运行多少轮api调用，一轮调用10个api
@@ -119,9 +121,10 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR、AutoApiS
            内容为： secret_list2=[r'帐号1副应用机密',r'帐号n副应用机密']
            
            然后类似的在backuptoken文件夹里放入对应的副应用的0.txt....n.txt。
-           
            （这里看不懂的话，直接选N吧）
-           
+         
+         * 是否开启测试：配合备用应用模式使用，选Y则同时测试各账号的主副应用，看看主副应用是否都能成功调用api。测试完改回N
+         （备用模式跟测试模式看不懂都选N）
            （由于延时需要长时间运行，测试的时候建议把随机、延时都关了，迅速运行完看看看情况，再更改喜欢的配置）
   
 * 第五步，进入你的个人设置页面(右上角头像 Settings，不是仓库里的 Settings)，选择 Developer settings > Personal access tokens > Generate new token,
