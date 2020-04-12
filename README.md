@@ -72,7 +72,7 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR、AutoApiS
 
 * 第三步，依次点击上栏 Setting > Secrets > Add a new secret，新建两个secret如图：ID_LIST、KEY_LIST 。
 
-  内容分别如下: ( 把你的应用id改成你的应用id , 你的应用机密改成你的机密，单引号不要动 )
+  内容分别如下: ( 把账号X应用id改成你账号X的应用id , 账号X应用机密改成你账号X的机密，，直接替换单引号里的内容，单引号不要动 )
   
   (同样以此类推，直接复制增加；如果只需一个账号，则 id_list = [r'账号0应用id'] )
   
