@@ -146,7 +146,7 @@ def testapi2(path,a,ls):
             try:
                 if req.get(rapi[rana],headers=headers).status_code == 200:
                     num1[a]+=1
-                    print("备用账号"+str(a)+"的"+rana+"号api调用成功,所有api总成功"+str(num1[a])+'次')
+                    print("账号"+str(a)+"备用的"+rana+"号api调用成功,所有api总成功"+str(num1[a])+'次')
                     if config_list['是否开启各api延时'] != 'N':
                         gg = random.randint(config_list['api延时范围开始'],config_list['api延时结束'])
                         time.sleep(gg)
@@ -159,7 +159,7 @@ def testapi2(path,a,ls):
             try:
                 if req.get(rapi2[rana],headers=headers).status_code == 200:
                     num1[a]+=1
-                    print("备用账号"+str(a)+"的"+rana+"号api调用成功,所有api总成功"+str(num1[a])+'次')
+                    print("账号"+str(a)+"备用的"+rana+"号api调用成功,所有api总成功"+str(num1[a])+'次')
                     if config_list['是否开启各api延时'] != 'N':
                         gg = random.randint(config_list['api延时范围开始'],config_list['api延时结束'])
                         time.sleep(gg)
@@ -206,6 +206,7 @@ def main2():
                 testapi2(path,a,ls)
 
 if config_list['是否开启测试'] == 'Y':
+    config_list = {'每次轮数':1,'是否启动随机时间':'N','延时范围起始':600,'结束':1200,'是否开启随机api顺序':'Y','是否开启各api延时':'N','api延时范围开始':2,'api延时结束':5,'是否开启各账号延时':'N','账号延时范围开始':60,'账号延时结束':120,'是否开启备用应用':'N','是否开启测试':'N'}
     id_lists=id_list
     secret_lists=secret_list
     main()
