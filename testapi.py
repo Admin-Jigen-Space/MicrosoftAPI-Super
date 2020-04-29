@@ -4,8 +4,8 @@ import json,sys,time,random
 #注册后一定要再点代表xxx授予管理员同意,否则outlook api无法调用
 #以下空行不要删除，以便运行时插入机密
 
-id_list2 = []
-secret_list2 = []
+id_list2 = [1]
+secret_list2 = [1]
 
 
 
@@ -20,7 +20,7 @@ config_list = {'每次轮数':6,
 	       '是否开启随机api顺序':'Y',
 	       '是否开启各api延时':'N','api延时范围开始':2,'api延时结束':5,
 	       '是否开启各账号延时':'Y','账号延时范围开始':60,'账号延时结束':120,
-	       '是否开启备用应用':'N','是否开启测试':'Y'}
+	       '是否开启备用应用':'N','是否开启测试':'N'}
 
 num1 = [0]*len(id_list)
 path2=sys.path[0]+r'/config/randomapi.txt'
@@ -209,7 +209,7 @@ if config_list['是否开启测试'] == 'Y':
     id_lists=id_list
     secret_lists=secret_list
     main()
-    if id_list2 != []:
+    if id_list2 != [1]:
         id_lists=id_list2
         secret_lists=secret_list2
         main2()
@@ -220,7 +220,7 @@ else:
             secret_lists=secret_list
             main()
         else:
-            if id_list2 == []:
+            if id_list2 == [1]:
                 id_lists=id_list
                 secret_lists=secret_list
                 main()
