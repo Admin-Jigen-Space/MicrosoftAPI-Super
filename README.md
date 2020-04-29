@@ -27,13 +27,13 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR、AutoApiS
            
 
 ### 区别 ###
-   普通版（弃用）：密钥暴露，不在乎的话可以使用
+   [普通版（弃用）](https://github.com/wangziyingwen/AutoApi)：密钥暴露，不在乎的话可以使用
    
-   加密版（推荐）：应用id机密加密隐藏，提高安全性
+   [加密版（推荐）](https://github.com/wangziyingwen/AutoApiSecret)：应用id机密加密隐藏，提高安全性
 
-   模仿人为应用开发版（半弃用） ：顾名思义，加密版的升级版。由于超级版兼容模拟版的功能，此版本处于一种尴尬位置。（当然也可以正常使用）
+   [模仿人为应用开发版（半弃用）](https://github.com/wangziyingwen/AutoApiSR)：顾名思义，加密版的升级版。由于超级版兼容模拟版的功能，此版本处于一种尴尬位置。（当然也可以正常使用）
    
-   超级版（不建议）：进一步升级版，增加自定义参数、模式。按目前情况，微软续订要求很低，暂时不需要使用此项目。
+   [超级版（不建议）](https://github.com/wangziyingwen/AutoApiS)：进一步升级版，增加自定义参数、模式。按目前情况，微软续订要求很低，暂时不需要使用此项目。
    
    **以上推荐/不建议等只是个人意见，请自行选择版本，可同时使用**。
    
@@ -43,7 +43,7 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR、AutoApiS
 * 第一步，先大致浏览[原教程](https://blog.432100.xyz/index.php/archives/50/)，了解如何获取应用id、机密、refresh_token 3样东西，以方便接下来的操作。
 
 * 第二步，登陆/新建github账号，回到本项目页面，点击右上角fork本项目的代码到你自己的账号，然后你账号下会出现一个一模一样的项目，接下来的操作均在你的这个项目下进行。
-
+  （看不到图片/图裂请科学上网）
   ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApi/fork.png)
   
 * 根据[原教程](https://blog.432100.xyz/index.php/archives/50/)获取应用id、机密、refresh_token（自己复制保存，注意区分id机密，千万别弄混了）
@@ -86,11 +86,11 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR、AutoApiS
   ```shell
   secret_list = [r'账号0应用机密',r'账号n应用机密']
   ```
-  ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApi/机密.png)
+  ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApi/机密2.png)
   
   最终格式应该是类似这样的：
   
-  ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApi/格式.png)
+  ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApi/格式2.png)
   
 * 第四步，修改参数配置
   
@@ -117,7 +117,7 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR、AutoApiS
          
          * 是否开启备用应用：更换应用id调用api。同样每30天更换一次应用id。（目前每个账号只至支持1个副应用）
          
-           开启后，需在设置的secret再增加两条：
+           开启后，需分别为各账号再注册一个应用，然后在设置的secret再增加两条：
            ID_LIST2
            内容为： id_list2=[r'帐号1副应用id',r'帐号n副应用id']
 
