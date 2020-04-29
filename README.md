@@ -42,8 +42,8 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR、AutoApiS
 ### 步骤 ###
 * 第一步，先大致浏览[原教程](https://blog.432100.xyz/index.php/archives/50/)，了解如何获取应用id、机密、refresh_token 3样东西，以方便接下来的操作。
 
-* 第二步，登陆/新建github账号，回到本项目页面，点击右上角fork本项目的代码到你自己的账号，然后你账号下会出现一个一模一样的项目，接下来的操作均在你的这个项目下进行。
-  （看不到图片/图裂请科学上网）
+* 第二步，登陆/新建github账号，回到本项目页面，点击右上角fork本项目的代码到你自己的账号，然后你账号下会出现一个一模一样的项目，接下来的操作均在你的这个项目下进行。（看不到图片/图裂请科学上网）
+  
   ![image](https://github.com/wangziyingwen/ImageHosting/blob/master/AutoApi/fork.png)
   
 * 根据[原教程](https://blog.432100.xyz/index.php/archives/50/)获取应用id、机密、refresh_token（自己复制保存，注意区分id机密，千万别弄混了）
