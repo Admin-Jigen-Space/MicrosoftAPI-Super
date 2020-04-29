@@ -128,8 +128,8 @@ AutoApi系列：AutoApi、AutoApiSecret、AutoApiSR、AutoApiS
            （这里看不懂的话，直接选N吧）
          
          * 是否开启测试：瞬间完成运行，以便查看id、机密、token等是否填写错误，能否正确运行。
-         （若配合备用应用模式使用，则会同时测试各账号的主副应用，看看主副应用是否都能成功调用api）
-         测试完务必改回N
+          （若配合备用应用模式使用，则会同时测试各账号的主副应用，看看主副应用是否都能成功调用api）
+           测试完务必改回N
          
 * 第五步，进入你的个人设置页面(右上角头像 Settings，不是仓库里的 Settings)，选择 Developer settings > Personal access tokens > Generate new token,
 
