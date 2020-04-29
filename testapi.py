@@ -96,7 +96,7 @@ def testapi(path,a,ls):
     'Authorization':access_token,
     'Content-Type':'application/json'
     }
-    print('账号 '+str(a)+'/n第 '+str(ls)+' 运行开始时间为 :', localtime)
+    print('账号 '+str(a)+'/n第 '+str(ls)+' 轮运行开始时间为 :', localtime)
     if config_list['是否开启随机api顺序'] == 'Y':
         print('总api数13个，请自行确认个数')
         for ra in range(14):
@@ -135,7 +135,7 @@ def testapi2(path,a,ls):
     'Authorization':access_token,
     'Content-Type':'application/json'
     }
-    print('账号 '+str(a)+' 备用应用/n第 '+str(ls)+' 运行开始时间为 :', localtime)
+    print('账号 '+str(a)+' 备用应用/n第 '+str(ls)+' 轮运行开始时间为 :', localtime)
     if config_list['是否开启随机api顺序'] == 'Y':
         print('总api数13个，请自行确认个数')
     else:
@@ -172,7 +172,7 @@ def main():
             b=random.randint(config_list['延时范围起始'],config_list['结束'])
             time.sleep(b)
             for a in range(0, len(id_lists)):
-                if config_list['是否开启各账号延时'] != 'Y':
+                if config_list['是否开启各账号延时'] == 'Y':
                     c = random.randint(config_list['账号延时范围开始'],config_list['账号延时结束'])
                     time.sleep(c)
                 path=sys.path[0]+r'/token/'+str(a)+'.txt'
@@ -180,7 +180,7 @@ def main():
     else:
         for ls in range(config_list['每次轮数']): 
             for a in range(0, len(id_lists)):
-                if config_list['是否开启各账号延时'] != 'Y':
+                if config_list['是否开启各账号延时'] == 'Y':
                     c = random.randint(config_list['账号延时范围开始'],config_list['账号延时结束'])
                     time.sleep(c)
                 path=sys.path[0]+r'/token/'+str(a)+'.txt'
@@ -191,7 +191,7 @@ def main2():
             b=random.randint(config_list['延时范围起始'],config_list['结束'])
             time.sleep(b)
             for a in range(0, len(id_lists)):
-                if config_list['是否开启各账号延时'] != 'Y':
+                if config_list['是否开启各账号延时'] == 'Y':
                     c = random.randint(config_list['账号延时范围开始'],config_list['账号延时结束'])
                     time.sleep(c)
                 path=sys.path[0]+r'/backuptoken/'+str(a)+'.txt'
@@ -199,7 +199,7 @@ def main2():
     else:
         for ls in range(config_list['每次轮数']): 
             for a in range(0, len(id_lists)):
-                if config_list['是否开启各账号延时'] != 'Y':
+                if config_list['是否开启各账号延时'] == 'Y':
                     c = random.randint(config_list['账号延时范围开始'],config_list['账号延时结束'])
                     time.sleep(c)
                 path=sys.path[0]+r'/backuptoken/'+str(a)+'.txt'
