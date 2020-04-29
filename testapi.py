@@ -1,12 +1,12 @@
 # -*- coding: UTF-8 -*-
 import requests as req
 import json,sys,time,random
-#先注册azure应用,确保应用有以下权限:
-#files:	Files.Read.All、Files.ReadWrite.All、Sites.Read.All、Sites.ReadWrite.All
-#user:	User.Read.All、User.ReadWrite.All、Directory.Read.All、Directory.ReadWrite.All
-#mail:  Mail.Read、Mail.ReadWrite、MailboxSettings.Read、MailboxSettings.ReadWrite
 #注册后一定要再点代表xxx授予管理员同意,否则outlook api无法调用
 #以下空行不要删除，以便运行时插入机密
+
+id_list2 = []
+secret_list2 = []
+
 
 
 
@@ -18,8 +18,9 @@ import json,sys,time,random
 config_list = {'每次轮数':6,
 	       '是否启动随机时间':'Y','延时范围起始':600,'结束':1200,
 	       '是否开启随机api顺序':'Y',
-	       '是否开启各api延时':'N','分延时范围开始':2,'分结束':5,
-	       '是否开启备用应用':'N','是否开启测试':'N'}
+	       '是否开启各api延时':'N','api延时范围开始':2,'api延时结束':5,
+	       '是否开启各账号延时':'Y','账号延时范围起始':60,'账号延时结束':120,
+	       '是否开启备用应用':'N','是否开启测试':'Y'}
 
 num1 = [0]*len(id_list)
 path2=sys.path[0]+r'/config/randomapi.txt'
@@ -85,7 +86,7 @@ def gettoken(refresh_token,a):
     refresh_token = jsontxt['refresh_token']
     access_token = jsontxt['access_token']
     return access_token
-def testapi(path,a):
+def testapi(path,a,ls):
     fo = open(path, "r+")
     refresh_token = fo.read()
     fo.close()
@@ -95,7 +96,7 @@ def testapi(path,a):
     'Authorization':access_token,
     'Content-Type':'application/json'
     }
-    print('账号 '+str(a)+' 此次运行开始时间为 :', localtime)
+    print('账号 '+str(a)+'/n第 '+str(ls)+' 运行开始时间为 :', localtime)
     if config_list['是否开启随机api顺序'] == 'Y':
         print('总api数13个，请自行确认个数')
         for ra in range(14):
@@ -105,7 +106,7 @@ def testapi(path,a):
                     num1[a]+=1
                     print("账号"+str(a)+"的"+rana+"号api调用成功,所有api总成功"+str(num1[a])+'次')
                     if config_list['是否开启各api延时'] != 'N':
-                        gg = random.randint(config_list['分延时范围开始'],config_list['分结束'])
+                        gg = random.randint(config_list['api延时范围开始'],config_list['api延时结束'])
                         time.sleep(gg)
             except:
                 print("pass")
@@ -119,12 +120,12 @@ def testapi(path,a):
                     num1[a]+=1
                     print("账号"+str(a)+"的"+rana+"号api调用成功,所有api总成功"+str(num1[a])+'次')
                     if config_list['是否开启各api延时'] != 'N':
-                        gg = random.randint(config_list['分延时范围开始'],config_list['分结束'])
+                        gg = random.randint(config_list['api延时范围开始'],config_list['api延时结束'])
                         time.sleep(gg)
             except:
                 print("pass")
                 pass
-def testapi2(path,a):
+def testapi2(path,a,ls):
     fo = open(path, "r+")
     refresh_token = fo.read()
     fo.close()
@@ -134,7 +135,7 @@ def testapi2(path,a):
     'Authorization':access_token,
     'Content-Type':'application/json'
     }
-    print('备用账号 '+str(a)+' 此次运行开始时间为 :', localtime)
+    print('账号 '+str(a)+' 备用应用/n第 '+str(ls)+' 运行开始时间为 :', localtime)
     if config_list['是否开启随机api顺序'] == 'Y':
         print('总api数13个，请自行确认个数')
     else:
@@ -147,7 +148,7 @@ def testapi2(path,a):
                     num1[a]+=1
                     print("备用账号"+str(a)+"的"+rana+"号api调用成功,所有api总成功"+str(num1[a])+'次')
                     if config_list['是否开启各api延时'] != 'N':
-                        gg = random.randint(config_list['分延时范围开始'],config_list['分结束'])
+                        gg = random.randint(config_list['api延时范围开始'],config_list['api延时结束'])
                         time.sleep(gg)
             except:
                 print("pass")
@@ -160,53 +161,58 @@ def testapi2(path,a):
                     num1[a]+=1
                     print("备用账号"+str(a)+"的"+rana+"号api调用成功,所有api总成功"+str(num1[a])+'次')
                     if config_list['是否开启各api延时'] != 'N':
-                        gg = random.randint(config_list['分延时范围开始'],config_list['分结束'])
+                        gg = random.randint(config_list['api延时范围开始'],config_list['api延时结束'])
                         time.sleep(gg)
             except:
                 print("pass")
                 pass
 def main():
     if config_list['是否启动随机时间'] == 'Y':        
-        for _ in range(config_list['每次轮数']): 
+        for ls in range(config_list['每次轮数']): 
             b=random.randint(config_list['延时范围起始'],config_list['结束'])
             time.sleep(b)
             for a in range(0, len(id_lists)):
-                c=random.randint(5,10)
+               if config_list['是否开启各账号延时'] != 'Y':
+                   c = random.randint(config_list['账号延时范围开始'],config_list['账号延时结束'])
+                   time.sleep(c)
                 path=sys.path[0]+r'/token/'+str(a)+'.txt'
-                time.sleep(c)
-                testapi(path,a)
+                testapi(path,a,ls)
     else:
-        for _ in range(config_list['每次轮数']): 
+        for ls in range(config_list['每次轮数']): 
             for a in range(0, len(id_lists)):
-                c=random.randint(5,10)
+               if config_list['是否开启各账号延时'] != 'Y':
+                   c = random.randint(config_list['账号延时范围开始'],config_list['账号延时结束'])
+                   time.sleep(c)
                 path=sys.path[0]+r'/token/'+str(a)+'.txt'
-                time.sleep(c)
-                testapi(path,a)
+                testapi(path,a,ls)
 def main2():
     if config_list['是否启动随机时间'] == 'Y':        
-        for _ in range(config_list['每次轮数']): 
+        for ls in range(config_list['每次轮数']): 
             b=random.randint(config_list['延时范围起始'],config_list['结束'])
             time.sleep(b)
             for a in range(0, len(id_lists)):
-                c=random.randint(5,10)
+               if config_list['是否开启各账号延时'] != 'Y':
+                   c = random.randint(config_list['账号延时范围开始'],config_list['账号延时结束'])
+                   time.sleep(c)
                 path=sys.path[0]+r'/backuptoken/'+str(a)+'.txt'
-                time.sleep(c)
-                testapi2(path,a)
+                testapi2(path,a,ls)
     else:
-        for _ in range(config_list['每次轮数']): 
+        for ls in range(config_list['每次轮数']): 
             for a in range(0, len(id_lists)):
-                c=random.randint(5,10)
+               if config_list['是否开启各账号延时'] != 'Y':
+                   c = random.randint(config_list['账号延时范围开始'],config_list['账号延时结束'])
+                   time.sleep(c)
                 path=sys.path[0]+r'/backuptoken/'+str(a)+'.txt'
-                time.sleep(c)
-                testapi2(path,a)
+                testapi2(path,a,ls)
 
 if config_list['是否开启测试'] == 'Y':
     id_lists=id_list
     secret_lists=secret_list
     main()
-    id_lists=id_list2
-    secret_lists=secret_list2
-    main2()
+    if id_list2 != []:
+       id_lists=id_list2
+       secret_lists=secret_list2
+       main2()
 else:
     if config_list['是否开启备用应用'] == 'Y':
         if buconfig == 'Y':
@@ -214,9 +220,14 @@ else:
             secret_lists=secret_list
             main()
         else:
-            id_lists=id_list2
-            secret_lists=secret_list2
-            main2()
+            if id_list2 == []:
+                id_lists=id_list
+                secret_lists=secret_list
+                main()
+            else:
+                id_lists=id_list2
+                secret_lists=secret_list2
+                main2()
     else:
         id_lists=id_list
         secret_lists=secret_list
